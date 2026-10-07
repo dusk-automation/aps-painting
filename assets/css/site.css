@@ -797,3 +797,68 @@ main{display:block;background:var(--paper)}
   .hero-media{padding-bottom:0}
   .story-on .story-scene{place-items:start center}
 }
+
+/* =====================================================================
+   Fourth pass: paint comes back, used with restraint. Dry-brush strokes
+   in the three brand colours, and wet-paint drips between sections.
+   ===================================================================== */
+:root{--paint-y:#ffd023;--paint-b:#1c9be6;--paint-p:#e6257c}
+
+/* small colour accents */
+.dots{width:34px;background:linear-gradient(90deg,var(--paint-y) 0 28%,transparent 28% 36%,var(--paint-b) 36% 64%,transparent 64% 72%,var(--paint-p) 72%)}
+.intro-rule{background:linear-gradient(90deg,var(--paint-y) 0 33.33%,var(--paint-b) 0 66.66%,var(--paint-p) 0)}
+.intro-cols i:nth-child(2)::before{background:var(--paint-b)}
+.intro-cols i:nth-child(3)::before{background:var(--paint-p)}
+.q-bar{background:linear-gradient(90deg,var(--paint-y) 0 33.33%,var(--paint-b) 0 66.66%,var(--paint-p) 0)}
+
+/* a brushed stroke behind a word */
+.stroke{padding:0 .2em;margin:0 -.06em}
+.stroke::before{inset:-.02em -.1em .04em;border-radius:0;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 90' preserveAspectRatio='none'%3E%3Crect x='9' y='-0.8' width='575' height='11.6' rx='5.8'/%3E%3Crect x='12' y='9.2' width='568' height='11.6' rx='5.8'/%3E%3Crect x='11' y='19.2' width='570' height='11.6' rx='5.8'/%3E%3Crect x='0' y='29.2' width='590' height='11.6' rx='5.8'/%3E%3Crect x='14' y='39.2' width='572' height='11.6' rx='5.8'/%3E%3Crect x='14' y='49.2' width='584' height='11.6' rx='5.8'/%3E%3Crect x='7' y='59.2' width='588' height='11.6' rx='5.8'/%3E%3Crect x='8' y='69.2' width='580' height='11.6' rx='5.8'/%3E%3Crect x='0' y='79.2' width='595' height='11.6' rx='5.8'/%3E%3C/svg%3E") center/100% 100% no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 90' preserveAspectRatio='none'%3E%3Crect x='9' y='-0.8' width='575' height='11.6' rx='5.8'/%3E%3Crect x='12' y='9.2' width='568' height='11.6' rx='5.8'/%3E%3Crect x='11' y='19.2' width='570' height='11.6' rx='5.8'/%3E%3Crect x='0' y='29.2' width='590' height='11.6' rx='5.8'/%3E%3Crect x='14' y='39.2' width='572' height='11.6' rx='5.8'/%3E%3Crect x='14' y='49.2' width='584' height='11.6' rx='5.8'/%3E%3Crect x='7' y='59.2' width='588' height='11.6' rx='5.8'/%3E%3Crect x='8' y='69.2' width='580' height='11.6' rx='5.8'/%3E%3Crect x='0' y='79.2' width='595' height='11.6' rx='5.8'/%3E%3C/svg%3E") center/100% 100% no-repeat}
+.stroke--blue::before{background:var(--paint-b)}
+.stroke--pink::before{background:#d4186c}
+.stroke--pink{color:var(--white)}
+
+/* dry-brush strokes */
+.brush{position:absolute;display:block;pointer-events:none;z-index:0;transform:rotate(-7deg)}
+.brush svg{display:block;width:100%;height:100%;overflow:visible;filter:url(#rough)}
+.brush--y,.brush--y2{color:var(--paint-y)}
+.brush--b{color:var(--paint-b)}
+.brush--p{color:var(--paint-p)}
+.js .brush{clip-path:inset(-30% 100% -30% -2%);transition:clip-path 1.1s var(--ease-io);transition-delay:calc(1s + var(--i,0)*200ms)}
+.js.ready .hero .brush,.js .cta.is-seen .brush{clip-path:inset(-30% -4% -30% -2%)}
+.js .cta .brush{transition-delay:calc(.2s + var(--i,0)*180ms)}
+
+.show-wrap{position:relative;transform:translate3d(0,calc(var(--hs,0)*34px),0)}
+.show{position:relative;z-index:1;transform:none}
+.hero .brush--y{left:-7%;top:-4.6%;width:70%;height:10%}
+.hero .brush--b{right:-7%;bottom:-4.6%;width:62%;height:9.4%}
+.hero .brush--p{right:-5.500%;top:15%;width:30%;height:6.4%}
+@media (min-width:920px){.hero .brush--y{left:-11%}.hero .brush--b{right:-9%}.hero .brush--p{right:-7%}}
+
+.cta-brushes{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:1}
+.cta-in{z-index:2}
+.cta .brush--y{right:-5%;top:15%;width:min(44vw,440px);height:clamp(20px,3.6vw,42px)}
+.cta .brush--b{right:-9%;top:calc(15% + clamp(28px,4.8vw,58px));width:min(36vw,360px);height:clamp(18px,3.2vw,38px)}
+.cta .brush--p{right:-3%;top:calc(15% + clamp(54px,9.4vw,112px));width:min(24vw,250px);height:clamp(14px,2.6vw,30px)}
+.cta .brush--y2{left:-6%;bottom:13%;width:min(34vw,340px);height:clamp(18px,3.2vw,38px)}
+@media (max-width:759px){.cta .brush--y,.cta .brush--b,.cta .brush--p{top:22px}.cta .brush--b{top:48px}.cta .brush--p{top:72px}.cta .brush--y2{bottom:16px}}
+
+/* wet paint running from one section into the next */
+.has-drips{position:relative}
+.sec.has-drips{padding-top:calc(clamp(64px,11vw,128px) + 46px)}
+.cta.has-drips{padding-top:calc(clamp(72px,12vw,130px) + 46px)}
+.drip{display:none}
+.drips-wrap{position:absolute;left:0;right:0;top:-1px;height:210px;overflow:hidden;pointer-events:none;z-index:3}
+.drips{display:block;width:100%;min-width:1008px;height:87px;overflow:visible;fill:var(--dc,var(--ink));transform-origin:50% 0}
+.drips-gloss{fill:none;stroke:#fff;stroke-linecap:round;opacity:.3}
+.drips-wrap--light .drips-gloss{stroke:#000;opacity:.07}
+.js .drips[data-r]{opacity:1;transform:scaleY(.22);transition:transform 2s cubic-bezier(.16,.8,.2,1)}
+.js .drips[data-r].in{transform:none}
+.drips-run{transform-box:fill-box;transform-origin:50% 0;animation:dripRun 7s ease-in-out infinite alternate;animation-delay:calc(var(--i)*-2.3s)}
+@keyframes dripRun{from{transform:scaleY(.62)}to{transform:scaleY(1)}}
+.drips-drop{transform-box:fill-box;transform-origin:center;opacity:0;animation:dropFall 7s cubic-bezier(.55,0,.9,.45) infinite;animation-delay:2s}
+@keyframes dropFall{0%,74%{transform:translateY(-8px) scale(.3);opacity:0}78%{transform:translateY(0) scale(1);opacity:1}100%{transform:translateY(84px) scale(.85);opacity:0}}
+@media (min-width:760px){.drips{min-width:1440px;height:124px}}
+.ticker{border-bottom:0}
+
+@media (prefers-reduced-motion:reduce){.drips-run,.drips-drop{animation:none}.drips-drop{display:none}}

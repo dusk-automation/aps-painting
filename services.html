@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&amp;family=Josefin+Sans:wght@500;600;700&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/site.css?v=4">
+<link rel="stylesheet" href="assets/css/site.css?v=5">
 <script>
 (function(){var r=document.documentElement,p=false;r.classList.add('js');
 try{var s=sessionStorage,m=matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -27,7 +27,7 @@ if(!p&&!m&&inside)r.classList.add('wipe-in');}catch(e){}
 r.classList.add(p?'has-intro':'no-intro');if(p)r.classList.add('intro-lock');
 setTimeout(function(){if(!window.__aps)r.classList.remove('js','has-intro','intro-lock','wipe-in')},6000);
 // if a newer version has been published than the copy this browser kept, load the new one once
-try{var B='4';fetch('version.txt?'+Date.now(),{cache:'no-store'}).then(function(x){return x.ok?x.text():''}).then(function(t){t=(t||'').trim();
+try{var B='5';fetch('version.txt?'+Date.now(),{cache:'no-store'}).then(function(x){return x.ok?x.text():''}).then(function(t){t=(t||'').trim();
 if(/^\d+$/.test(t)&&t!==B&&!new RegExp('[?&]r='+t+'(&|$)').test(location.search)){location.replace(location.pathname+'?r='+t+location.hash)}}).catch(function(){})}catch(e){}
 })();
 </script>
@@ -46,6 +46,7 @@ if(/^\d+$/.test(t)&&t!==B&&!new RegExp('[?&]r='+t+'(&|$)').test(location.search)
 <symbol id="i-left" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></symbol>
 <symbol id="i-right" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></symbol>
 <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></symbol>
+<symbol id="brush" viewBox="0 0 600 90" preserveAspectRatio="none"><rect x="22" y="-0.6" width="319" height="7.2" rx="3.6"/><rect x="380" y="-0.6" width="183" height="7.2" rx="3.6"/><rect x="18" y="5.4" width="562" height="7.2" rx="3.6"/><rect x="11" y="11.4" width="527" height="7.2" rx="3.6"/><rect x="17" y="17.4" width="566" height="7.2" rx="3.6"/><rect x="7" y="23.4" width="334" height="7.2" rx="3.6"/><rect x="365" y="23.4" width="203" height="7.2" rx="3.6"/><rect x="10" y="29.4" width="468" height="7.2" rx="3.6"/><rect x="527" y="29.4" width="52" height="7.2" rx="3.6"/><rect x="3" y="35.4" width="509" height="7.2" rx="3.6"/><rect x="532" y="35.4" width="46" height="7.2" rx="3.6"/><rect x="5" y="41.4" width="498" height="7.2" rx="3.6"/><rect x="8" y="47.4" width="577" height="7.2" rx="3.6"/><rect x="8" y="53.4" width="452" height="7.2" rx="3.6"/><rect x="507" y="53.4" width="57" height="7.2" rx="3.6"/><rect x="18" y="59.4" width="398" height="7.2" rx="3.6"/><rect x="438" y="59.4" width="139" height="7.2" rx="3.6"/><rect x="6" y="65.4" width="489" height="7.2" rx="3.6"/><rect x="14" y="71.4" width="529" height="7.2" rx="3.6"/><rect x="21" y="77.4" width="342" height="7.2" rx="3.6"/><rect x="388" y="77.4" width="151" height="7.2" rx="3.6"/><rect x="29" y="83.4" width="453" height="7.2" rx="3.6"/></symbol><filter id="rough" x="-4%" y="-25%" width="108%" height="150%"><feTurbulence type="fractalNoise" baseFrequency="0.018 0.42" numOctaves="2" seed="4" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="7" xChannelSelector="R" yChannelSelector="G"/></filter>
 </defs></svg>
 <div class="intro" id="intro">
   <div class="intro-paint" aria-hidden="true"><i style="--c:var(--yellow)"></i><i style="--c:var(--blue)"></i><i style="--c:var(--pink)"></i></div>
@@ -135,7 +136,8 @@ if(/^\d+$/.test(t)&&t!==B&&!new RegExp('[?&]r='+t+'(&|$)').test(location.search)
     <nav class="svc-nav" aria-label="Services on this page" data-h style="--i:3"><a href="#interior" style="--c:var(--yellow)">Interior</a><a href="#exterior" style="--c:var(--blue)">Exterior</a><a href="#repairs" style="--c:var(--pink)">Plaster repair</a><a href="#timber" style="--c:var(--plum)">Timber</a><a href="#cabinets" style="--c:var(--yellow)">Cabinets</a></nav>
   </div>
 </section>
-<section class="sec sec--paper">
+<section class="sec sec--paper has-drips">
+  <div class="drips-wrap" aria-hidden="true"><svg class="drips" data-r viewBox="0 0 1440 124" preserveAspectRatio="none" focusable="false"><path d="M0 0H1440V9L1348.8 9Q1339.8 9 1339.8 18L1339.8 22.8C1339.8 27.9 1341.9 27.9 1341.9 31.9A5.7 5.7 0 0 1 1330.6 31.9C1330.6 27.9 1332.7 27.9 1332.7 22.8L1332.7 18Q1332.7 9 1323.7 9L1241.9 9Q1232.9 9 1232.9 18L1232.9 24.0A5.7 5.7 0 0 1 1221.5 24.0L1221.5 18Q1221.5 9 1212.5 9L1151.8 9Q1142.8 9 1142.8 18L1142.8 23.0A14.2 14.2 0 0 1 1114.5 23.0L1114.5 18Q1114.5 9 1105.5 9L1007.3 9Q998.3 9 998.3 18L998.3 24.0A8.9 8.9 0 0 1 980.5 24.0L980.5 18Q980.5 9 971.5 9L866.6 9Q857.6 9 857.6 18L857.6 28.1C857.6 35.0 860.5 35.0 860.5 40.5A7.7 7.7 0 0 1 845.0 40.5C845.0 35.0 848.0 35.0 848.0 28.1L848.0 18Q848.0 9 839.0 9L807.1 9Q798.1 9 798.1 18L798.1 24.0A6.0 6.0 0 0 1 786.1 24.0L786.1 18Q786.1 9 777.1 9L718.2 9Q709.2 9 709.2 18L709.2 37.6C709.2 42.6 711.3 42.6 711.3 46.6A5.6 5.6 0 0 1 700.1 46.6C700.1 42.6 702.2 42.6 702.2 37.6L702.2 18Q702.2 9 693.2 9L627.4 9Q618.4 9 618.4 18L618.4 28.8C618.4 36.8 621.8 36.8 621.8 43.0A8.9 8.9 0 0 1 604.0 43.0C604.0 36.8 607.4 36.8 607.4 28.8L607.4 18Q607.4 9 598.4 9L564.4 9Q555.4 9 555.4 18L555.4 23.0A14.2 14.2 0 0 1 527.1 23.0L527.1 18Q527.1 9 518.1 9L411.7 9Q402.7 9 402.7 18L402.7 38.6A8.9 8.9 0 0 1 384.9 38.6L384.9 18Q384.9 9 375.9 9L259.0 9Q250.0 9 250.0 18L250.0 30.9C250.0 38.1 253.0 38.1 253.0 43.8A8.0 8.0 0 0 1 236.9 43.8C236.9 38.1 240.0 38.1 240.0 30.9L240.0 18Q240.0 9 231.0 9L141.0 9Q132.0 9 132.0 18L132.0 24.0A8.6 8.6 0 0 1 114.9 24.0L114.9 18Q114.9 9 105.9 9L73.7 9Q64.7 9 64.7 18L64.7 69.1C64.7 78.2 68.5 78.2 68.5 85.3A10.1 10.1 0 0 1 48.2 85.3C48.2 78.2 52.1 78.2 52.1 69.1L52.1 18Q52.1 9 43.1 9L0 9z"/><g class="drips-run" style="--i:0"><path d="M1137.5 0L1137.5 49.1C1137.5 61.8 1142.8 61.8 1142.8 71.7A14.2 14.2 0 0 1 1114.5 71.7C1114.5 61.8 1119.9 61.8 1119.9 49.1L1119.9 0z"/><path class="drips-gloss" d="M1122.7 67.5v8.8" stroke-width="3.7"/></g><g class="drips-run" style="--i:1"><path d="M550.0 0L550.0 42.0C550.0 54.7 555.4 54.7 555.4 64.6A14.2 14.2 0 0 1 527.1 64.6C527.1 54.7 532.5 54.7 532.5 42.0L532.5 0z"/><path class="drips-gloss" d="M535.3 60.4v8.8" stroke-width="3.7"/></g><path class="drips-gloss" stroke-width="3" d="M54.1 82.3v6.3"/><circle class="drips-drop" cx="1128.7" cy="88.9" r="7.1"/></svg></div>
   <div class="wrap">
     <article class="svc" id="interior" style="--c:var(--yellow)">
       <div class="svc-media" data-r="left">
@@ -220,8 +222,10 @@ if(/^\d+$/.test(t)&&t!==B&&!new RegExp('[?&]r='+t+'(&|$)').test(location.search)
   </div>
 </section>
 
-<section class="cta">
+<section class="cta has-drips">
+  <div class="drips-wrap drips-wrap--light" aria-hidden="true" style="--dc:#fffcf6"><svg class="drips" data-r viewBox="0 0 1440 124" preserveAspectRatio="none" focusable="false"><path d="M0 0H1440V9L1390.8 9Q1381.8 9 1381.8 18L1381.8 27.4A8.8 8.8 0 0 1 1364.2 27.4L1364.2 18Q1364.2 9 1355.2 9L1302.1 9Q1293.1 9 1293.1 18L1293.1 30.0A7.8 7.8 0 0 1 1277.5 30.0L1277.5 18Q1277.5 9 1268.5 9L1178.4 9Q1169.4 9 1169.4 18L1169.4 55.3A14.3 14.3 0 0 1 1140.8 55.3L1140.8 18Q1140.8 9 1131.8 9L1027.3 9Q1018.3 9 1018.3 18L1018.3 23.0A12.9 12.9 0 0 1 992.5 23.0L992.5 18Q992.5 9 983.5 9L915.8 9Q906.8 9 906.8 18L906.8 37.9A9.2 9.2 0 0 1 888.4 37.9L888.4 18Q888.4 9 879.4 9L823.1 9Q814.1 9 814.1 18L814.1 21.9C814.1 27.2 816.3 27.2 816.3 31.3A5.9 5.9 0 0 1 804.5 31.3C804.5 27.2 806.8 27.2 806.8 21.9L806.8 18Q806.8 9 797.8 9L700.3 9Q691.3 9 691.3 18L691.3 26.1C691.3 32.3 693.9 32.3 693.9 37.1A6.9 6.9 0 0 1 680.2 37.1C680.2 32.3 682.8 32.3 682.8 26.1L682.8 18Q682.8 9 673.8 9L627.6 9Q618.6 9 618.6 18L618.6 23.0A14.4 14.4 0 0 1 589.9 23.0L589.9 18Q589.9 9 580.9 9L472.4 9Q463.4 9 463.4 18L463.4 35.6A8.5 8.5 0 0 1 446.5 35.6L446.5 18Q446.5 9 437.5 9L336.3 9Q327.3 9 327.3 18L327.3 24.0A7.8 7.8 0 0 1 311.7 24.0L311.7 18Q311.7 9 302.7 9L276.1 9Q267.1 9 267.1 18L267.1 23.0A14.0 14.0 0 0 1 239.0 23.0L239.0 18Q239.0 9 230.0 9L135.5 9Q126.5 9 126.5 18L126.5 29.8A6.8 6.8 0 0 1 112.9 29.8L112.9 18Q112.9 9 103.9 9L72.2 9Q63.2 9 63.2 18L63.2 24.0A9.3 9.3 0 0 1 44.5 24.0L44.5 18Q44.5 9 35.5 9L0 9z"/><g class="drips-run" style="--i:0"><path d="M1013.4 0L1013.4 47.1C1013.4 58.7 1018.3 58.7 1018.3 67.8A12.9 12.9 0 0 1 992.5 67.8C992.5 58.7 997.4 58.7 997.4 47.1L997.4 0z"/><path class="drips-gloss" d="M999.9 63.9v8.0" stroke-width="3.4"/></g><g class="drips-run" style="--i:1"><path d="M613.2 0L613.2 59.9C613.2 72.9 618.6 72.9 618.6 82.9A14.4 14.4 0 0 1 589.9 82.9C589.9 72.9 595.4 72.9 595.4 59.9L595.4 0z"/><path class="drips-gloss" d="M598.3 78.6v8.9" stroke-width="3.7"/></g><g class="drips-run" style="--i:2"><path d="M261.7 0L261.7 54.2C261.7 66.8 267.1 66.8 267.1 76.6A14.0 14.0 0 0 1 239.0 76.6C239.0 66.8 244.4 66.8 244.4 54.2L244.4 0z"/><path class="drips-gloss" d="M247.2 72.4v8.7" stroke-width="3.6"/></g><path class="drips-gloss" stroke-width="3" d="M1149.1 51.0v8.9"/><circle class="drips-drop" cx="1005.4" cy="83.7" r="6.4"/></svg></div>
   <img class="cta-bg" src="assets/stock/weatherboard-white.jpg" alt="" width="1200" height="800" loading="lazy" decoding="async">
+  <div class="cta-brushes" aria-hidden="true"><span class="brush brush--y" style="--i:0" aria-hidden="true"><svg viewBox="0 0 600 90" preserveAspectRatio="none" focusable="false"><use href="#brush" fill="currentColor"/></svg></span><span class="brush brush--b" style="--i:1" aria-hidden="true"><svg viewBox="0 0 600 90" preserveAspectRatio="none" focusable="false"><use href="#brush" fill="currentColor"/></svg></span><span class="brush brush--p" style="--i:2" aria-hidden="true"><svg viewBox="0 0 600 90" preserveAspectRatio="none" focusable="false"><use href="#brush" fill="currentColor"/></svg></span><span class="brush brush--y2" style="--i:3" aria-hidden="true"><svg viewBox="0 0 600 90" preserveAspectRatio="none" focusable="false"><use href="#brush" fill="currentColor"/></svg></span></div>
   <div class="wrap cta-in" data-r>
     <p class="kicker"><span class="dots"></span>Caulfield North, Melbourne</p>
     <h2 class="cta-title">Got a job <span class="stroke">in mind?</span></h2>
@@ -291,6 +295,6 @@ if(/^\d+$/.test(t)&&t!==B&&!new RegExp('[?&]r='+t+'(&|$)').test(location.search)
   </div>
 </footer>
 <div class="bar"><a class="btn btn-ghost" href="tel:+61426037747"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-phone"/></svg>Call Adam</a><a class="btn btn-y" href="contact.html">Get a quote <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a></div>
-<script src="assets/js/site.js?v=4" defer></script>
+<script src="assets/js/site.js?v=5" defer></script>
 </body>
 </html>

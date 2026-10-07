@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&amp;family=Josefin+Sans:wght@500;600;700&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/site.css?v=4">
+<link rel="stylesheet" href="assets/css/site.css?v=5">
 <script>
 (function(){var r=document.documentElement,p=false;r.classList.add('js');
 try{var s=sessionStorage,m=matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -27,7 +27,7 @@ if(!p&&!m&&inside)r.classList.add('wipe-in');}catch(e){}
 r.classList.add(p?'has-intro':'no-intro');if(p)r.classList.add('intro-lock');
 setTimeout(function(){if(!window.__aps)r.classList.remove('js','has-intro','intro-lock','wipe-in')},6000);
 // if a newer version has been published than the copy this browser kept, load the new one once
-try{var B='4';fetch('version.txt?'+Date.now(),{cache:'no-store'}).then(function(x){return x.ok?x.text():''}).then(function(t){t=(t||'').trim();
+try{var B='5';fetch('version.txt?'+Date.now(),{cache:'no-store'}).then(function(x){return x.ok?x.text():''}).then(function(t){t=(t||'').trim();
 if(/^\d+$/.test(t)&&t!==B&&!new RegExp('[?&]r='+t+'(&|$)').test(location.search)){location.replace(location.pathname+'?r='+t+location.hash)}}).catch(function(){})}catch(e){}
 })();
 </script>
@@ -46,6 +46,7 @@ if(/^\d+$/.test(t)&&t!==B&&!new RegExp('[?&]r='+t+'(&|$)').test(location.search)
 <symbol id="i-left" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></symbol>
 <symbol id="i-right" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></symbol>
 <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></symbol>
+<symbol id="brush" viewBox="0 0 600 90" preserveAspectRatio="none"><rect x="22" y="-0.6" width="319" height="7.2" rx="3.6"/><rect x="380" y="-0.6" width="183" height="7.2" rx="3.6"/><rect x="18" y="5.4" width="562" height="7.2" rx="3.6"/><rect x="11" y="11.4" width="527" height="7.2" rx="3.6"/><rect x="17" y="17.4" width="566" height="7.2" rx="3.6"/><rect x="7" y="23.4" width="334" height="7.2" rx="3.6"/><rect x="365" y="23.4" width="203" height="7.2" rx="3.6"/><rect x="10" y="29.4" width="468" height="7.2" rx="3.6"/><rect x="527" y="29.4" width="52" height="7.2" rx="3.6"/><rect x="3" y="35.4" width="509" height="7.2" rx="3.6"/><rect x="532" y="35.4" width="46" height="7.2" rx="3.6"/><rect x="5" y="41.4" width="498" height="7.2" rx="3.6"/><rect x="8" y="47.4" width="577" height="7.2" rx="3.6"/><rect x="8" y="53.4" width="452" height="7.2" rx="3.6"/><rect x="507" y="53.4" width="57" height="7.2" rx="3.6"/><rect x="18" y="59.4" width="398" height="7.2" rx="3.6"/><rect x="438" y="59.4" width="139" height="7.2" rx="3.6"/><rect x="6" y="65.4" width="489" height="7.2" rx="3.6"/><rect x="14" y="71.4" width="529" height="7.2" rx="3.6"/><rect x="21" y="77.4" width="342" height="7.2" rx="3.6"/><rect x="388" y="77.4" width="151" height="7.2" rx="3.6"/><rect x="29" y="83.4" width="453" height="7.2" rx="3.6"/></symbol><filter id="rough" x="-4%" y="-25%" width="108%" height="150%"><feTurbulence type="fractalNoise" baseFrequency="0.018 0.42" numOctaves="2" seed="4" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="7" xChannelSelector="R" yChannelSelector="G"/></filter>
 </defs></svg>
 <div class="intro" id="intro">
   <div class="intro-paint" aria-hidden="true"><i style="--c:var(--yellow)"></i><i style="--c:var(--blue)"></i><i style="--c:var(--pink)"></i></div>
@@ -245,7 +246,8 @@ if(/^\d+$/.test(t)&&t!==B&&!new RegExp('[?&]r='+t+'(&|$)').test(location.search)
   </div>
 </section>
 
-<section class="sec sec--paper" id="gallery">
+<section class="sec sec--paper has-drips" id="gallery">
+  <div class="drips-wrap" aria-hidden="true"><svg class="drips" data-r viewBox="0 0 1440 124" preserveAspectRatio="none" focusable="false"><path d="M0 0H1440V9L1351.0 9Q1342.0 9 1342.0 18L1342.0 23.0A10.1 10.1 0 0 1 1321.8 23.0L1321.8 18Q1321.8 9 1312.8 9L1246.9 9Q1237.9 9 1237.9 18L1237.9 28.6C1237.9 34.3 1240.3 34.3 1240.3 38.6A6.3 6.3 0 0 1 1227.7 38.6C1227.7 34.3 1230.1 34.3 1230.1 28.6L1230.1 18Q1230.1 9 1221.1 9L1175.6 9Q1166.6 9 1166.6 18L1166.6 24.0A8.1 8.1 0 0 1 1150.3 24.0L1150.3 18Q1150.3 9 1141.3 9L1028.7 9Q1019.7 9 1019.7 18L1019.7 26.7A7.0 7.0 0 0 1 1005.6 26.7L1005.6 18Q1005.6 9 996.6 9L892.6 9Q883.6 9 883.6 18L883.6 32.2C883.6 37.3 885.7 37.3 885.7 41.2A5.6 5.6 0 0 1 874.4 41.2C874.4 37.3 876.6 37.3 876.6 32.2L876.6 18Q876.6 9 867.6 9L823.7 9Q814.7 9 814.7 18L814.7 23.0A9.7 9.7 0 0 1 795.3 23.0L795.3 18Q795.3 9 786.3 9L676.1 9Q667.1 9 667.1 18L667.1 23.5C667.1 29.4 669.6 29.4 669.6 34.0A6.5 6.5 0 0 1 656.5 34.0C656.5 29.4 659.0 29.4 659.0 23.5L659.0 18Q659.0 9 650.0 9L548.7 9Q539.7 9 539.7 18L539.7 24.0A6.0 6.0 0 0 1 527.7 24.0L527.7 18Q527.7 9 518.7 9L469.9 9Q460.9 9 460.9 18L460.9 25.9A8.1 8.1 0 0 1 444.6 25.9L444.6 18Q444.6 9 435.6 9L359.9 9Q350.9 9 350.9 18L350.9 34.9C350.9 40.3 353.2 40.3 353.2 44.5A6.0 6.0 0 0 1 341.2 44.5C341.2 40.3 343.5 40.3 343.5 34.9L343.5 18Q343.5 9 334.5 9L277.4 9Q268.4 9 268.4 18L268.4 23.0A9.5 9.5 0 0 1 249.4 23.0L249.4 18Q249.4 9 240.4 9L211.4 9Q202.4 9 202.4 18L202.4 25.9A6.0 6.0 0 0 1 190.3 25.9L190.3 18Q190.3 9 181.3 9L117.3 9Q108.3 9 108.3 18L108.3 25.4A7.2 7.2 0 0 1 94.0 25.4L94.0 18Q94.0 9 85.0 9L45.8 9Q36.8 9 36.8 18L36.8 44.9C36.8 55.9 41.5 55.9 41.5 64.5A12.3 12.3 0 0 1 16.9 64.5C16.9 55.9 21.6 55.9 21.6 44.9L21.6 18Q21.6 9 12.6 9L0 9z"/><g class="drips-run" style="--i:0"><path d="M1338.2 0L1338.2 83.0C1338.2 92.0 1342.0 92.0 1342.0 99.1A10.1 10.1 0 0 1 1321.8 99.1C1321.8 92.0 1325.6 92.0 1325.6 83.0L1325.6 0z"/><path class="drips-gloss" d="M1327.7 96.1v6.3" stroke-width="2.6"/></g><g class="drips-run" style="--i:1"><path d="M811.0 0L811.0 62.2C811.0 70.9 814.7 70.9 814.7 77.7A9.7 9.7 0 0 1 795.3 77.7C795.3 70.9 799.0 70.9 799.0 62.2L799.0 0z"/><path class="drips-gloss" d="M800.9 74.8v6.0" stroke-width="2.5"/></g><g class="drips-run" style="--i:2"><path d="M264.8 0L264.8 87.6C264.8 96.1 268.4 96.1 268.4 102.8A9.5 9.5 0 0 1 249.4 102.8C249.4 96.1 253.0 96.1 253.0 87.6L253.0 0z"/><path class="drips-gloss" d="M254.9 99.9v5.9" stroke-width="2.5"/></g><path class="drips-gloss" stroke-width="3" d="M24.0 60.9v7.6"/><circle class="drips-drop" cx="1331.9" cy="112.2" r="5.0"/></svg></div>
   <div class="wrap">
     <div class="sec-head" data-r>
       <p class="kicker">Gallery</p>
@@ -263,8 +265,10 @@ if(/^\d+$/.test(t)&&t!==B&&!new RegExp('[?&]r='+t+'(&|$)').test(location.search)
   <div class="lb-foot"><button type="button" class="lb-btn lb-prev" aria-label="Previous photo"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-left"/></svg></button><p class="lb-cap"></p><button type="button" class="lb-btn lb-next" aria-label="Next photo"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-right"/></svg></button></div>
 </div>
 
-<section class="cta">
+<section class="cta has-drips">
+  <div class="drips-wrap drips-wrap--light" aria-hidden="true" style="--dc:#f5efe3"><svg class="drips" data-r viewBox="0 0 1440 124" preserveAspectRatio="none" focusable="false"><path d="M0 0H1440V9L1336.6 9Q1327.6 9 1327.6 18L1327.6 27.2A8.1 8.1 0 0 1 1311.3 27.2L1311.3 18Q1311.3 9 1302.3 9L1230.9 9Q1221.9 9 1221.9 18L1221.9 25.4C1221.9 31.9 1224.6 31.9 1224.6 36.9A7.2 7.2 0 0 1 1210.3 36.9C1210.3 31.9 1213.0 31.9 1213.0 25.4L1213.0 18Q1213.0 9 1204.0 9L1170.0 9Q1161.0 9 1161.0 18L1161.0 23.0A9.8 9.8 0 0 1 1141.4 23.0L1141.4 18Q1141.4 9 1132.4 9L1070.8 9Q1061.8 9 1061.8 18L1061.8 36.0C1061.8 41.4 1064.1 41.4 1064.1 45.5A5.9 5.9 0 0 1 1052.3 45.5C1052.3 41.4 1054.5 41.4 1054.5 36.0L1054.5 18Q1054.5 9 1045.5 9L959.6 9Q950.6 9 950.6 18L950.6 29.2A8.1 8.1 0 0 1 934.5 29.2L934.5 18Q934.5 9 925.5 9L828.1 9Q819.1 9 819.1 18L819.1 26.9C819.1 33.7 822.0 33.7 822.0 39.0A7.6 7.6 0 0 1 806.9 39.0C806.9 33.7 809.8 33.7 809.8 26.9L809.8 18Q809.8 9 800.8 9L738.3 9Q729.3 9 729.3 18L729.3 23.0A11.8 11.8 0 0 1 705.7 23.0L705.7 18Q705.7 9 696.7 9L613.6 9Q604.6 9 604.6 18L604.6 24.4A7.8 7.8 0 0 1 589.1 24.4L589.1 18Q589.1 9 580.1 9L512.9 9Q503.9 9 503.9 18L503.9 22.2C503.9 27.8 506.3 27.8 506.3 32.1A6.2 6.2 0 0 1 493.9 32.1C493.9 27.8 496.3 27.8 496.3 22.2L496.3 18Q496.3 9 487.3 9L391.3 9Q382.3 9 382.3 18L382.3 30.0A7.9 7.9 0 0 1 366.4 30.0L366.4 18Q366.4 9 357.4 9L239.9 9Q230.9 9 230.9 18L230.9 29.7A6.4 6.4 0 0 1 218.1 29.7L218.1 18Q218.1 9 209.1 9L168.6 9Q159.6 9 159.6 18L159.6 33.7C159.6 40.1 162.3 40.1 162.3 45.2A7.2 7.2 0 0 1 148.0 45.2C148.0 40.1 150.7 40.1 150.7 33.7L150.7 18Q150.7 9 141.7 9L67.1 9Q58.1 9 58.1 18L58.1 25.6A8.9 8.9 0 0 1 40.3 25.6L40.3 18Q40.3 9 31.3 9L0 9z"/><g class="drips-run" style="--i:0"><path d="M1157.3 0L1157.3 58.4C1157.3 67.3 1161.0 67.3 1161.0 74.2A9.8 9.8 0 0 1 1141.4 74.2C1141.4 67.3 1145.1 67.3 1145.1 58.4L1145.1 0z"/><path class="drips-gloss" d="M1147.1 71.2v6.1" stroke-width="2.6"/></g><g class="drips-run" style="--i:1"><path d="M724.8 0L724.8 48.0C724.8 58.6 729.3 58.6 729.3 66.9A11.8 11.8 0 0 1 705.7 66.9C705.7 58.6 710.2 58.6 710.2 48.0L710.2 0z"/><path class="drips-gloss" d="M712.5 63.3v7.3" stroke-width="3.1"/></g><path class="drips-gloss" stroke-width="3" d=""/><circle class="drips-drop" cx="1151.2" cy="87.0" r="4.9"/></svg></div>
   <img class="cta-bg" src="assets/stock/weatherboard-white.jpg" alt="" width="1200" height="800" loading="lazy" decoding="async">
+  <div class="cta-brushes" aria-hidden="true"><span class="brush brush--y" style="--i:0" aria-hidden="true"><svg viewBox="0 0 600 90" preserveAspectRatio="none" focusable="false"><use href="#brush" fill="currentColor"/></svg></span><span class="brush brush--b" style="--i:1" aria-hidden="true"><svg viewBox="0 0 600 90" preserveAspectRatio="none" focusable="false"><use href="#brush" fill="currentColor"/></svg></span><span class="brush brush--p" style="--i:2" aria-hidden="true"><svg viewBox="0 0 600 90" preserveAspectRatio="none" focusable="false"><use href="#brush" fill="currentColor"/></svg></span><span class="brush brush--y2" style="--i:3" aria-hidden="true"><svg viewBox="0 0 600 90" preserveAspectRatio="none" focusable="false"><use href="#brush" fill="currentColor"/></svg></span></div>
   <div class="wrap cta-in" data-r>
     <p class="kicker"><span class="dots"></span>Caulfield North, Melbourne</p>
     <h2 class="cta-title">Yours could be <span class="stroke">next.</span></h2>
@@ -334,6 +338,6 @@ if(/^\d+$/.test(t)&&t!==B&&!new RegExp('[?&]r='+t+'(&|$)').test(location.search)
   </div>
 </footer>
 <div class="bar"><a class="btn btn-ghost" href="tel:+61426037747"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-phone"/></svg>Call Adam</a><a class="btn btn-y" href="contact.html">Get a quote <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a></div>
-<script src="assets/js/site.js?v=4" defer></script>
+<script src="assets/js/site.js?v=5" defer></script>
 </body>
 </html>

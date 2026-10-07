@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&amp;family=Josefin+Sans:wght@500;600;700&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/site.css?v=4">
+<link rel="stylesheet" href="assets/css/site.css?v=5">
 <script>
 (function(){var r=document.documentElement,p=false;r.classList.add('js');
 try{var s=sessionStorage,m=matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -27,7 +27,7 @@ if(!p&&!m&&inside)r.classList.add('wipe-in');}catch(e){}
 r.classList.add(p?'has-intro':'no-intro');if(p)r.classList.add('intro-lock');
 setTimeout(function(){if(!window.__aps)r.classList.remove('js','has-intro','intro-lock','wipe-in')},6000);
 // if a newer version has been published than the copy this browser kept, load the new one once
-try{var B='4';fetch('version.txt?'+Date.now(),{cache:'no-store'}).then(function(x){return x.ok?x.text():''}).then(function(t){t=(t||'').trim();
+try{var B='5';fetch('version.txt?'+Date.now(),{cache:'no-store'}).then(function(x){return x.ok?x.text():''}).then(function(t){t=(t||'').trim();
 if(/^\d+$/.test(t)&&t!==B&&!new RegExp('[?&]r='+t+'(&|$)').test(location.search)){location.replace(location.pathname+'?r='+t+location.hash)}}).catch(function(){})}catch(e){}
 })();
 </script>
@@ -46,6 +46,7 @@ if(/^\d+$/.test(t)&&t!==B&&!new RegExp('[?&]r='+t+'(&|$)').test(location.search)
 <symbol id="i-left" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></symbol>
 <symbol id="i-right" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></symbol>
 <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></symbol>
+<symbol id="brush" viewBox="0 0 600 90" preserveAspectRatio="none"><rect x="22" y="-0.6" width="319" height="7.2" rx="3.6"/><rect x="380" y="-0.6" width="183" height="7.2" rx="3.6"/><rect x="18" y="5.4" width="562" height="7.2" rx="3.6"/><rect x="11" y="11.4" width="527" height="7.2" rx="3.6"/><rect x="17" y="17.4" width="566" height="7.2" rx="3.6"/><rect x="7" y="23.4" width="334" height="7.2" rx="3.6"/><rect x="365" y="23.4" width="203" height="7.2" rx="3.6"/><rect x="10" y="29.4" width="468" height="7.2" rx="3.6"/><rect x="527" y="29.4" width="52" height="7.2" rx="3.6"/><rect x="3" y="35.4" width="509" height="7.2" rx="3.6"/><rect x="532" y="35.4" width="46" height="7.2" rx="3.6"/><rect x="5" y="41.4" width="498" height="7.2" rx="3.6"/><rect x="8" y="47.4" width="577" height="7.2" rx="3.6"/><rect x="8" y="53.4" width="452" height="7.2" rx="3.6"/><rect x="507" y="53.4" width="57" height="7.2" rx="3.6"/><rect x="18" y="59.4" width="398" height="7.2" rx="3.6"/><rect x="438" y="59.4" width="139" height="7.2" rx="3.6"/><rect x="6" y="65.4" width="489" height="7.2" rx="3.6"/><rect x="14" y="71.4" width="529" height="7.2" rx="3.6"/><rect x="21" y="77.4" width="342" height="7.2" rx="3.6"/><rect x="388" y="77.4" width="151" height="7.2" rx="3.6"/><rect x="29" y="83.4" width="453" height="7.2" rx="3.6"/></symbol><filter id="rough" x="-4%" y="-25%" width="108%" height="150%"><feTurbulence type="fractalNoise" baseFrequency="0.018 0.42" numOctaves="2" seed="4" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="7" xChannelSelector="R" yChannelSelector="G"/></filter>
 </defs></svg>
 <div class="intro" id="intro">
   <div class="intro-paint" aria-hidden="true"><i style="--c:var(--yellow)"></i><i style="--c:var(--blue)"></i><i style="--c:var(--pink)"></i></div>
@@ -135,7 +136,8 @@ if(/^\d+$/.test(t)&&t!==B&&!new RegExp('[?&]r='+t+'(&|$)').test(location.search)
     
   </div>
 </section>
-<section class="sec sec--paper">
+<section class="sec sec--paper has-drips">
+  <div class="drips-wrap" aria-hidden="true"><svg class="drips" data-r viewBox="0 0 1440 124" preserveAspectRatio="none" focusable="false"><path d="M0 0H1440V9L1372.5 9Q1363.5 9 1363.5 18L1363.5 31.8A7.2 7.2 0 0 1 1349.1 31.8L1349.1 18Q1349.1 9 1340.1 9L1247.6 9Q1238.6 9 1238.6 18L1238.6 24.0A9.0 9.0 0 0 1 1220.6 24.0L1220.6 18Q1220.6 9 1211.6 9L1117.4 9Q1108.4 9 1108.4 18L1108.4 28.9A8.7 8.7 0 0 1 1091.0 28.9L1091.0 18Q1091.0 9 1082.0 9L1029.9 9Q1020.9 9 1020.9 18L1020.9 24.0A6.6 6.6 0 0 1 1007.6 24.0L1007.6 18Q1007.6 9 998.6 9L904.2 9Q895.2 9 895.2 18L895.2 59.5C895.2 71.6 900.3 71.6 900.3 81.1A13.5 13.5 0 0 1 873.4 81.1C873.4 71.6 878.5 71.6 878.5 59.5L878.5 18Q878.5 9 869.5 9L805.5 9Q796.5 9 796.5 18L796.5 29.4A7.8 7.8 0 0 1 780.9 29.4L780.9 18Q780.9 9 771.9 9L700.3 9Q691.3 9 691.3 18L691.3 23.0A10.7 10.7 0 0 1 669.8 23.0L669.8 18Q669.8 9 660.8 9L581.5 9Q572.5 9 572.5 18L572.5 33.1A9.2 9.2 0 0 1 554.0 33.1L554.0 18Q554.0 9 545.0 9L443.2 9Q434.2 9 434.2 18L434.2 66.2C434.2 75.6 438.1 75.6 438.1 82.9A10.4 10.4 0 0 1 417.3 82.9C417.3 75.6 421.3 75.6 421.3 66.2L421.3 18Q421.3 9 412.3 9L377.6 9Q368.6 9 368.6 18L368.6 38.0A8.6 8.6 0 0 1 351.4 38.0L351.4 18Q351.4 9 342.4 9L296.1 9Q287.1 9 287.1 18L287.1 23.0A11.8 11.8 0 0 1 263.5 23.0L263.5 18Q263.5 9 254.5 9L206.0 9Q197.0 9 197.0 18L197.0 28.7A9.3 9.3 0 0 1 178.4 28.7L178.4 18Q178.4 9 169.4 9L62.8 9Q53.8 9 53.8 18L53.8 27.3C53.8 35.3 57.2 35.3 57.2 41.5A8.9 8.9 0 0 1 39.5 41.5C39.5 35.3 42.8 35.3 42.8 27.3L42.8 18Q42.8 9 33.8 9L0 9z"/><g class="drips-run" style="--i:0"><path d="M687.2 0L687.2 50.2C687.2 59.8 691.3 59.8 691.3 67.3A10.7 10.7 0 0 1 669.8 67.3C669.8 59.8 673.9 59.8 673.9 50.2L673.9 0z"/><path class="drips-gloss" d="M676.0 64.1v6.7" stroke-width="2.8"/></g><g class="drips-run" style="--i:1"><path d="M282.6 0L282.6 45.1C282.6 55.7 287.1 55.7 287.1 64.0A11.8 11.8 0 0 1 263.5 64.0C263.5 55.7 268.0 55.7 268.0 45.1L268.0 0z"/><path class="drips-gloss" d="M270.3 60.5v7.3" stroke-width="3.1"/></g><path class="drips-gloss" stroke-width="3" d="M881.2 77.0v8.4M423.4 79.8v6.5"/><circle class="drips-drop" cx="680.5" cy="81.1" r="5.4"/></svg></div>
   <div class="wrap contact-grid">
     <form class="quote" id="quote" data-quote novalidate action="#" method="post" data-r>
       <div class="q-progress" aria-hidden="true">
@@ -327,6 +329,6 @@ if(/^\d+$/.test(t)&&t!==B&&!new RegExp('[?&]r='+t+'(&|$)').test(location.search)
   </div>
 </footer>
 <div class="bar"><a class="btn btn-ghost" href="tel:+61426037747"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-phone"/></svg>Call Adam</a><a class="btn btn-y" href="#quote">Get a quote <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a></div>
-<script src="assets/js/site.js?v=4" defer></script>
+<script src="assets/js/site.js?v=5" defer></script>
 </body>
 </html>
