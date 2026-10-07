@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&amp;family=Josefin+Sans:wght@500;600;700&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/site.css?v=3">
+<link rel="stylesheet" href="assets/css/site.css?v=4">
 <script>
 (function(){var r=document.documentElement,p=false;r.classList.add('js');
 try{var s=sessionStorage,m=matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -25,7 +25,11 @@ p=!m&&(!inside||/[?&]intro=1/.test(location.search));
 if(/[?&]intro=0/.test(location.search))p=false;
 if(!p&&!m&&inside)r.classList.add('wipe-in');}catch(e){}
 r.classList.add(p?'has-intro':'no-intro');if(p)r.classList.add('intro-lock');
-setTimeout(function(){if(!window.__aps)r.classList.remove('js','has-intro','intro-lock','wipe-in')},6000);})();
+setTimeout(function(){if(!window.__aps)r.classList.remove('js','has-intro','intro-lock','wipe-in')},6000);
+// if a newer version has been published than the copy this browser kept, load the new one once
+try{var B='4';fetch('version.txt?'+Date.now(),{cache:'no-store'}).then(function(x){return x.ok?x.text():''}).then(function(t){t=(t||'').trim();
+if(/^\d+$/.test(t)&&t!==B&&!new RegExp('[?&]r='+t+'(&|$)').test(location.search)){location.replace(location.pathname+'?r='+t+location.hash)}}).catch(function(){})}catch(e){}
+})();
 </script>
 </head>
 <body>
@@ -111,7 +115,7 @@ setTimeout(function(){if(!window.__aps)r.classList.remove('js','has-intro','intr
 <section class="hero">
   <div class="wrap hero-grid">
     <div class="hero-copy">
-      <p class="kicker" data-h style="--i:0"><span class="dots"><i></i><i></i><i></i></span>Painter &middot; Caulfield North, Melbourne</p>
+      <p class="kicker" data-h style="--i:0"><span class="dots"></span>Painter &middot; Caulfield North, Melbourne</p>
       <h1 class="hero-title"><span class="line"><span>The finish</span></span><span class="line"><span>is in the</span></span><span class="line"><span><em class="stroke">prep.</em></span></span></h1>
       <p class="lede" data-h style="--i:1">Interior and exterior painting, plaster repair and timber finishes by Adam Cuypers and his team. Careful preparation first, then the right paint for the surface.</p>
       <div class="hero-cta" data-h style="--i:2">
@@ -125,30 +129,23 @@ setTimeout(function(){if(!window.__aps)r.classList.remove('js','has-intro','intr
       </ul>
     </div>
     <div class="hero-media">
-      <svg class="ribbons" viewBox="0 0 600 500" preserveAspectRatio="none" aria-hidden="true" focusable="false"><g><path pathLength="1" style="--i:0" stroke="#1277b8" stroke-width="60" d="M-30 396C120 304 330 448 630 322"/><path pathLength="1" style="--i:0" stroke="#1c9be6" stroke-width="60" d="M-30 384C120 292 330 436 630 310"/><path pathLength="1" style="--i:0" stroke="#8fd0f7" stroke-width="10" opacity=".75" d="M-30 366.0C120 274.0 330 418.0 630 292.0"/></g><g><path pathLength="1" style="--i:1" stroke="#d9a900" stroke-width="70" d="M-30 162C140 66 300 226 630 100"/><path pathLength="1" style="--i:1" stroke="#ffd023" stroke-width="70" d="M-30 150C140 54 300 214 630 88"/><path pathLength="1" style="--i:1" stroke="#fff0a6" stroke-width="11" opacity=".75" d="M-30 129.0C140 33.0 300 193.0 630 67.0"/></g><g><path pathLength="1" style="--i:2" stroke="#b01560" stroke-width="22" d="M408 -23C452 103 536 157 640 223"/><path pathLength="1" style="--i:2" stroke="#e6257c" stroke-width="22" d="M408 -30C452 96 536 150 640 216"/><path pathLength="1" style="--i:2" stroke="#f79cc6" stroke-width="4" opacity=".75" d="M408 -36.6C452 89.4 536 143.4 640 209.4"/></g></svg>
-      <div class="wall" data-wall aria-hidden="true">
-        <div class="wall-face">
-          <i class="wall-band"></i><i class="wall-band"></i><i class="wall-band"></i>
-          <i class="wall-tape"></i><i class="wall-tape wall-tape--2"></i>
-          <i class="wall-sheen"></i>
-          <div class="wall-roller"><svg viewBox="0 0 270 200" aria-hidden="true" focusable="false">
-            <defs><linearGradient id="wr-nap" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".5"/><stop offset=".45" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".34"/></linearGradient></defs>
-            <path d="M234 33h16a12 12 0 0 1 12 12v40a12 12 0 0 1-12 12H136a12 12 0 0 0-12 12v18" fill="none" stroke="#8d9399" stroke-width="9" stroke-linecap="round"/>
-            <path d="M234 31h16a12 12 0 0 1 12 12v40a12 12 0 0 1-12 12H136a12 12 0 0 0-12 12v18" fill="none" stroke="#e6e9ec" stroke-width="5" stroke-linecap="round"/>
-            <rect x="6" y="8" width="228" height="46" rx="23" fill="currentColor"/>
-            <rect x="6" y="8" width="228" height="46" rx="23" fill="url(#wr-nap)"/>
-            <rect x="6" y="8" width="15" height="46" rx="7.5" opacity=".24"/><rect x="219" y="8" width="15" height="46" rx="7.5" opacity=".24"/>
-            <rect x="108" y="120" width="32" height="76" rx="15" fill="#17171a" stroke="#f5efe3" stroke-width="3"/>
-            <rect x="109.500" y="136" width="29" height="12" fill="#ffd023"/>
-          </svg></div>
-        </div>
-        <p class="wall-label"><span><b>A.P.S</b> Wall coat</span><span class="wall-names">Sun &middot; Sky &middot; Rose</span></p>
+      <div class="show" data-show>
+        <figure class="show-slide is-on">
+          <img src="assets/stock/cottage-blue.jpg" alt="A freshly painted blue weatherboard cottage with a yellow front door" width="1200" height="1200" decoding="async" style="--pos:50% 60%">
+          <figcaption><span>01</span>Exterior painting</figcaption>
+        </figure>
+        <figure class="show-slide">
+          <img src="assets/stock/living-cream.jpg" alt="A bright living room with freshly painted cream walls" width="1400" height="1025" decoding="async">
+          <figcaption><span>02</span>Interior painting</figcaption>
+        </figure>
+        <figure class="show-slide">
+          <img src="assets/photos/garage-after.jpg" alt="A timber garage door refinished to a deep gloss by A.P.S" width="1400" height="1050" decoding="async">
+          <figcaption><span>03</span>Timber finishes</figcaption>
+        </figure>
+        <span class="show-line" aria-hidden="true"></span>
+        <div class="show-bar" aria-hidden="true"><i class="is-on"></i><i></i><i></i></div>
       </div>
-      <figure class="chip chip--photo">
-        <img src="assets/stock/cottage-blue.jpg" alt="A freshly painted blue weatherboard cottage with a yellow front door" width="1200" height="1200" decoding="async">
-        <figcaption><span>Exterior</span><span>02</span></figcaption>
-      </figure>
-      <p class="hero-badge"><span><b>5.0</b>Google rating</span></p>
+      <p class="hero-rating"><b>5.0</b><span><span class="stars" role="img" aria-label="5 out of 5 stars"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-star"/></svg></span>Google rating</span></p>
     </div>
   </div>
 </section>
@@ -242,92 +239,17 @@ setTimeout(function(){if(!window.__aps)r.classList.remove('js','has-intro','intr
     <div class="story-stage">
       <div class="wrap story-in">
         <div class="story-copy">
-          <p class="kicker">How a job runs</p>
+          <p class="kicker"><span class="dots"></span>How a job runs</p>
           <h2 class="h2" id="story-title">Four steps, <span class="stroke in">no surprises.</span></h2>
-          <ol class="steps story-steps"><li class="step is-on" style="--c:var(--yellow)"><h3 class="h3">Look and quote</h3><p>Adam looks over the job with you and gives you a clear price for the work.</p></li><li class="step" style="--c:var(--blue)"><h3 class="h3">Prep</h3><p>Surfaces are cleaned, sanded, filled and patched. Floors and furniture are covered.</p></li><li class="step" style="--c:var(--pink)"><h3 class="h3">Paint</h3><p>The right paint for each surface, put on in proper coats and cut in clean.</p></li><li class="step" style="--c:var(--plum)"><h3 class="h3">Walk-through</h3><p>You check the finish together before the job is called done.</p></li></ol>
-          <div class="story-bars" aria-hidden="true"><i style="--c:var(--yellow)"></i><i style="--c:var(--blue)"></i><i style="--c:var(--pink)"></i><i style="--c:var(--plum)"></i></div>
-          <p class="story-hint">Keep scrolling to run the job <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></p>
+          <ol class="steps story-steps"><li class="step is-on"><h3 class="h3">Look and quote</h3><p>Adam looks over the job with you and gives you a clear price for the work.</p></li><li class="step"><h3 class="h3">Prep</h3><p>Surfaces are cleaned, sanded, filled and patched. Floors and furniture are covered.</p></li><li class="step"><h3 class="h3">Paint</h3><p>The right paint for each surface, put on in proper coats and cut in clean.</p></li><li class="step"><h3 class="h3">Walk-through</h3><p>You check the finish together before the job is called done.</p></li></ol>
+          <div class="story-bars" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+          <p class="story-hint">Photos from A.P.S jobs. Keep scrolling <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></p>
         </div>
-        <div class="story-scene" aria-hidden="true">
+        <div class="story-scene">
           <div class="sc-box">
-            <div class="sc-layer sc-sky"></div><div class="sc-sun"></div>
-          <svg class="sc-layer" viewBox="0 0 800 640" preserveAspectRatio="xMidYMax meet" aria-hidden="true" focusable="false">
-            <defs><pattern id="bd-t" width="40" height="20" patternUnits="userSpaceOnUse"><rect width="40" height="20" fill="#cfc3a8"/><rect y="17" width="40" height="3" fill="#b2a585"/></pattern></defs>
-            <rect y="582" width="800" height="58" fill="#948e7e"/>
-            <rect x="548" y="112" width="44" height="120" fill="#7d5f50"/><rect x="541" y="102" width="58" height="15" fill="#6a4f42"/>
-            <path d="M400 96L668 262H132z" fill="url(#bd-t)"/>
-            <rect x="376" y="158" width="48" height="58" rx="24" fill="#b9ad94"/><rect x="386" y="170" width="28" height="40" rx="14" fill="#3f474d"/>
-            <path d="M400 76L702 263l-24 15L400 106 122 278l-24-15z" fill="#6f5f55"/>
-            <rect x="140" y="262" width="520" height="280" fill="url(#bd-t)"/>
-            <rect x="140" y="312" width="520" height="20" opacity=".13"/>
-            <path d="M106 262h588l24 40H82z" fill="#6f5f55"/><rect x="82" y="300" width="636" height="13" fill="#b9ad94"/>
-            <rect x="174" y="344" width="136" height="162" fill="#b9ad94"/><rect x="186" y="356" width="112" height="138" fill="#58636c"/><path d="M186 447L298 395V494H186z" fill="#3f474d" opacity=".6"/><rect x="238" y="356" width="8" height="138" fill="#b9ad94"/><rect x="186" y="421" width="112" height="8" fill="#b9ad94"/><rect x="166" y="506" width="152" height="12" fill="#b9ad94"/><rect x="166" y="518" width="152" height="4" opacity=".16"/><rect x="490" y="344" width="136" height="162" fill="#b9ad94"/><rect x="502" y="356" width="112" height="138" fill="#58636c"/><path d="M502 447L614 395V494H502z" fill="#3f474d" opacity=".6"/><rect x="554" y="356" width="8" height="138" fill="#b9ad94"/><rect x="502" y="421" width="112" height="8" fill="#b9ad94"/><rect x="482" y="506" width="152" height="12" fill="#b9ad94"/><rect x="482" y="518" width="152" height="4" opacity=".16"/>
-            <rect x="350" y="338" width="100" height="204" fill="#b9ad94"/><rect x="361" y="349" width="78" height="193" fill="#6e5646"/>
-            <rect x="371" y="361" width="58" height="70" fill="none" stroke="#58442f" stroke-width="4"/><rect x="371" y="445" width="58" height="84" fill="none" stroke="#58442f" stroke-width="4"/><circle cx="428" cy="442" r="5" fill="#3a2f26"/>
-            <path d="M140 334q0-22 24-22M660 334q0-22-24-22M334 334q0-22-22-22M466 334q0-22 22-22" fill="none" stroke="#b9ad94" stroke-width="6"/>
-            <rect x="126" y="312" width="14" height="232" fill="#b9ad94"/><rect x="660" y="312" width="14" height="232" fill="#b9ad94"/><rect x="322" y="312" width="12" height="232" fill="#b9ad94"/><rect x="466" y="312" width="12" height="232" fill="#b9ad94"/>
-            <rect x="100" y="542" width="600" height="14" fill="#8a7a66"/><rect x="112" y="556" width="576" height="26" fill="#7d5f50"/>
-            <path d="M112 569h576M160 556v13M232 569v13M304 556v13M520 556v13M592 569v13M650 556v13" stroke="#6a4f42" stroke-width="2" fill="none"/>
-            <rect x="338" y="556" width="124" height="13" fill="#8d7e6c"/><rect x="328" y="569" width="144" height="13" fill="#7a6c5b"/>
-            <circle cx="64" cy="566" r="40" fill="#75805c"/><circle cx="108" cy="576" r="28" fill="#626c4c"/><circle cx="742" cy="562" r="44" fill="#75805c"/><circle cx="696" cy="578" r="26" fill="#626c4c"/>
-            <defs><linearGradient id="sc-dirt" x1="0" y1="0" x2="0" y2="1"><stop offset=".3" stop-color="#3c2d19" stop-opacity="0"/><stop offset="1" stop-color="#3c2d19" stop-opacity=".3"/></linearGradient></defs>
-            <rect x="140" y="262" width="520" height="280" fill="url(#sc-dirt)"/>
-            <path d="M172 288c14-12 42-10 54 2s6 28-12 32-36 0-46-10-6-16 4-24z" fill="#a39370"/><path d="M186 296l14-4 6 8-12 6zM214 308l10 2-4 8z" fill="#e7dec9"/>
-            <path d="M546 284c16-10 46-4 52 8s-8 26-30 26-38-8-38-20 8-10 16-14z" fill="#a39370"/><path d="M560 294l16 2-6 10-10-4z" fill="#e7dec9"/>
-            <path d="M514 514c12-8 38-6 46 2s2 20-16 22-32-2-38-10 2-10 8-14z" fill="#a39370"/>
-            <path d="M462 268l10 22-8 18 12 20-6 16" fill="none" stroke="#5a4e3d" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M186 534c8-22 14-22 18-2s12-24 20-4 10-20 20-2 12-16 22 0 12-18 22 2" fill="none" stroke="#d2588f" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity=".85"/>
-            <path d="M200 520c10 6 20-10 30 0s20-8 28 2" fill="none" stroke="#5aa868" stroke-width="4" stroke-linecap="round" opacity=".8"/>
-            <path d="M150 262v36M236 262v24M560 262v30M636 262v38M300 262v18" stroke="#8a5a3c" stroke-width="5" opacity=".55" fill="none"/>
-            <path d="M118 582l4-18M128 582l8-14M676 582l-6-16M300 582l2-12M506 582l-4-14" stroke="#75805c" stroke-width="4" stroke-linecap="round" fill="none"/>
-          </svg>
-          <svg class="sc-layer" viewBox="0 0 800 640" preserveAspectRatio="xMidYMax meet" aria-hidden="true" focusable="false">
-            <g fill="#f4f0e5" stroke="#dcd5c4" stroke-width="2">
-              <path class="sc-patch" style="--i:0" d="M166 284c16-16 52-12 66 2s8 36-14 40-44 0-56-12-8-20 4-30z"/>
-              <path class="sc-patch" style="--i:1" d="M452 262l28 4 6 86-24 4-16-6z"/>
-              <path class="sc-patch" style="--i:2" d="M540 278c18-12 54-6 62 10s-10 32-34 32-46-10-46-24 8-12 18-18z"/>
-              <path class="sc-patch" style="--i:3" d="M178 510h118l6 30H174z"/>
-              <path class="sc-patch" style="--i:4" d="M506 510c14-10 46-8 56 2s2 26-18 28-38-2-46-12 0-12 8-18z"/>
-            </g>
-          </svg>
-          <div class="sc-layer sc-fresh"><svg class="sc-layer" viewBox="0 0 800 640" preserveAspectRatio="xMidYMax meet" aria-hidden="true" focusable="false">
-            <defs><pattern id="bd-f" width="40" height="20" patternUnits="userSpaceOnUse"><rect width="40" height="20" fill="#93a8ba"/><rect y="17" width="40" height="3" fill="#7c92a5"/></pattern></defs>
-            <rect y="582" width="800" height="58" fill="#86b074"/>
-            <rect x="548" y="112" width="44" height="120" fill="#a56e55"/><rect x="541" y="102" width="58" height="15" fill="#8a5741"/>
-            <path d="M400 96L668 262H132z" fill="url(#bd-f)"/>
-            <rect x="376" y="158" width="48" height="58" rx="24" fill="#fffaf0"/><rect x="386" y="170" width="28" height="40" rx="14" fill="#9cc3dc"/>
-            <path d="M400 76L702 263l-24 15L400 106 122 278l-24-15z" fill="#2c3138"/>
-            <rect x="140" y="262" width="520" height="280" fill="url(#bd-f)"/>
-            <rect x="140" y="312" width="520" height="20" opacity=".13"/>
-            <path d="M106 262h588l24 40H82z" fill="#2c3138"/><rect x="82" y="300" width="636" height="13" fill="#fffaf0"/>
-            <rect x="174" y="344" width="136" height="162" fill="#fffaf0"/><rect x="186" y="356" width="112" height="138" fill="#cfe6f5"/><path d="M186 447L298 395V494H186z" fill="#9cc3dc" opacity=".6"/><rect x="238" y="356" width="8" height="138" fill="#fffaf0"/><rect x="186" y="421" width="112" height="8" fill="#fffaf0"/><rect x="166" y="506" width="152" height="12" fill="#fffaf0"/><rect x="166" y="518" width="152" height="4" opacity=".16"/><rect x="490" y="344" width="136" height="162" fill="#fffaf0"/><rect x="502" y="356" width="112" height="138" fill="#cfe6f5"/><path d="M502 447L614 395V494H502z" fill="#9cc3dc" opacity=".6"/><rect x="554" y="356" width="8" height="138" fill="#fffaf0"/><rect x="502" y="421" width="112" height="8" fill="#fffaf0"/><rect x="482" y="506" width="152" height="12" fill="#fffaf0"/><rect x="482" y="518" width="152" height="4" opacity=".16"/>
-            <rect x="350" y="338" width="100" height="204" fill="#fffaf0"/><rect x="361" y="349" width="78" height="193" fill="#ffd023"/>
-            <rect x="371" y="361" width="58" height="70" fill="none" stroke="#d9ae00" stroke-width="4"/><rect x="371" y="445" width="58" height="84" fill="none" stroke="#d9ae00" stroke-width="4"/><circle cx="428" cy="442" r="5" fill="#141416"/>
-            <path d="M140 334q0-22 24-22M660 334q0-22-24-22M334 334q0-22-22-22M466 334q0-22 22-22" fill="none" stroke="#fffaf0" stroke-width="6"/>
-            <rect x="126" y="312" width="14" height="232" fill="#fffaf0"/><rect x="660" y="312" width="14" height="232" fill="#fffaf0"/><rect x="322" y="312" width="12" height="232" fill="#fffaf0"/><rect x="466" y="312" width="12" height="232" fill="#fffaf0"/>
-            <rect x="100" y="542" width="600" height="14" fill="#bb8c60"/><rect x="112" y="556" width="576" height="26" fill="#a56e55"/>
-            <path d="M112 569h576M160 556v13M232 569v13M304 556v13M520 556v13M592 569v13M650 556v13" stroke="#8a5741" stroke-width="2" fill="none"/>
-            <rect x="338" y="556" width="124" height="13" fill="#c3946c"/><rect x="328" y="569" width="144" height="13" fill="#a97c57"/>
-            <circle cx="64" cy="566" r="40" fill="#3f7d57"/><circle cx="108" cy="576" r="28" fill="#2f6846"/><circle cx="742" cy="562" r="44" fill="#3f7d57"/><circle cx="696" cy="578" r="26" fill="#2f6846"/>
-            
-          </svg></div>
-          <svg class="sc-layer" viewBox="0 0 800 640" preserveAspectRatio="xMidYMax meet" aria-hidden="true" focusable="false">
-            <g class="sc-tape">
-              <rect pathLength="1" x="170" y="340" width="144" height="182"/><rect pathLength="1" x="486" y="340" width="144" height="182"/><rect pathLength="1" x="346" y="334" width="108" height="212"/>
-            </g>
-            <g class="sc-sheet">
-              <path d="M40 584h720l34 56H6z" fill="#efe9dd"/><path d="M150 584l-30 56M330 584l-10 56M520 584l16 56M660 584l40 56" stroke="#d8cfbd" stroke-width="3" fill="none"/>
-              <rect x="604" y="566" width="46" height="46" rx="4" fill="#d9dcdf"/><rect x="604" y="580" width="46" height="18" fill="#ffd023"/><path d="M608 568c6-22 32-22 38 0" fill="none" stroke="#8d9399" stroke-width="3"/>
-            </g>
-          </svg>
-            <div class="sc-mark sc-mark--up" style="left:25%;top:47.5%"><i></i><span>Peeling paint</span></div>
-            <div class="sc-mark sc-mark--down" style="left:58.6%;top:48%"><i></i><span>Cracks</span></div>
-            <div class="sc-mark" style="left:29%;top:82%"><i></i><span>Graffiti</span></div>
-            <span class="vroller sc-roller"></span>
-            <div class="sc-layer sc-sheen"></div>
-            <span class="sc-spark" style="left:16%;top:26%;--i:0"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 0c1 7 4 11 12 12-8 1-11 5-12 12-1-7-4-11-12-12 8-1 11-5 12-12z"/></svg></span><span class="sc-spark" style="left:70%;top:20%;--i:1"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 0c1 7 4 11 12 12-8 1-11 5-12 12-1-7-4-11-12-12 8-1 11-5 12-12z"/></svg></span><span class="sc-spark" style="left:86%;top:56%;--i:2"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 0c1 7 4 11 12 12-8 1-11 5-12 12-1-7-4-11-12-12 8-1 11-5 12-12z"/></svg></span>
-            <span class="sc-phase">Before</span>
-            <span class="sc-done"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-check"/></svg>Finished</span>
+            <figure class="sc-shot"><img src="assets/photos/house-before.jpg" alt="A weatherboard cottage before painting, with faded boards" loading="lazy" decoding="async" style="--pos:0% 50%"><figcaption><b>01</b>Before</figcaption></figure><figure class="sc-shot"><img src="assets/photos/hallway.jpg" alt="A hallway mid-job with drop sheets down over the floor" loading="lazy" decoding="async" style="--pos:40% 50%"><figcaption><b>02</b>Floors covered</figcaption></figure><figure class="sc-shot"><img src="assets/photos/window-during.jpg" alt="A timber sash window part-way through painting, with the glass masked" loading="lazy" decoding="async" style="--pos:50% 38%"><figcaption><b>03</b>Glass masked, frames under way</figcaption></figure><figure class="sc-shot"><img src="assets/photos/house-after.jpg" alt="The weatherboard cottage after painting, in fresh blue-grey with white trim" loading="lazy" decoding="async" style="--pos:50% 50%"><figcaption><b>04</b>Finished</figcaption></figure>
+            <span class="sc-edge" aria-hidden="true"></span>
+            <span class="sc-count" aria-hidden="true"><b>01</b> / 04</span>
           </div>
         </div>
       </div>
@@ -335,67 +257,19 @@ setTimeout(function(){if(!window.__aps)r.classList.remove('js','has-intro','intr
   </div>
 </section>
 
-<section class="sec sec--paper has-drip" id="colours">
-  <span class="drip" aria-hidden="true"></span>
+<section class="sec sec--paper" id="colours">
   <div class="wrap">
     <div class="viz" data-viz>
       <div class="viz-head" data-r>
-        <p class="kicker">Try a colour</p>
-        <h2 class="h2">Picture it <span class="stroke stroke--pink">before</span> you paint it.</h2>
-        <p class="lede">Tap a swatch and watch the wall get a new coat. Just a bit of fun. For the real thing, talk it through with Adam.</p>
+        <p class="kicker"><span class="dots"></span>Colour</p>
+        <h2 class="h2">See a colour <span class="stroke">at scale.</span></h2>
+        <p class="lede">A small chip never tells the whole story. Tap a swatch to see it across a full wall, then talk it through with Adam.</p>
       </div>
       <div class="viz-room" data-r="left">
-        <svg viewBox="0 0 800 560" role="img" aria-label="Illustration of a living room. The wall changes colour when you pick a swatch.">
-  <defs>
-    <linearGradient id="vz-light" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity=".24"/><stop offset=".55" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".1"/></linearGradient>
-    <linearGradient id="vz-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#bfe0f4"/><stop offset="1" stop-color="#eef7fb"/></linearGradient>
-    <linearGradient id="vz-floor" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#b68657"/><stop offset="1" stop-color="#cb9d6b"/></linearGradient>
-  </defs>
-  <rect class="viz-wall" width="800" height="420" fill="#efe9dd"/>
-  <g class="viz-coat"><rect x="0" y="0" width="268" height="420" fill="#efe9dd"/><rect x="267" y="0" width="268" height="420" fill="#efe9dd"/><rect x="534" y="0" width="266" height="420" fill="#efe9dd"/></g>
-  <rect width="800" height="420" fill="url(#vz-light)"/>
-  <rect width="800" height="14" fill="#fffaf0"/><rect y="14" width="800" height="3" opacity=".07"/>
-  <g>
-    <rect x="62" y="74" width="190" height="248" rx="4" fill="#fffaf0"/>
-    <rect x="76" y="88" width="162" height="220" fill="url(#vz-sky)"/>
-    <path d="M76 262c30-24 58 4 88-14s52-8 74-24v84H76z" fill="#8fbf8f"/>
-    <path d="M76 286c40-14 70 6 104-6s40-10 58-16v44H76z" fill="#6fa878"/>
-    <rect x="153" y="88" width="8" height="220" fill="#fffaf0"/><rect x="76" y="192" width="162" height="8" fill="#fffaf0"/>
-    <rect x="52" y="318" width="210" height="14" rx="3" fill="#fffaf0"/><rect x="52" y="332" width="210" height="4" opacity=".1"/>
-  </g>
-  <g>
-    <rect x="452" y="84" width="124" height="156" rx="3" fill="#141416"/><rect x="462" y="94" width="104" height="136" fill="#fffaf0"/>
-    <path d="M508 204c-10-16-14-34-12-56 4 20 10 36 20 52z" fill="#ffd023"/><path d="M512 204c4-22 9-42 17-64-2 24-4 44-7 63z" fill="#1c9be6"/><path d="M522 202c6-13 13-24 23-33-7 11-12 22-16 34z" fill="#e6257c"/><path d="M478 212c20-2 44-17 68-45-21 29-45 46-68 48z" fill="#141416"/>
-    <rect x="596" y="118" width="86" height="108" rx="3" fill="#141416"/><rect x="604" y="126" width="70" height="92" fill="#fffaf0"/><circle cx="639" cy="164" r="20" fill="#e6257c"/><rect x="619" y="194" width="40" height="8" rx="4" fill="#141416"/>
-  </g>
-  <rect y="402" width="800" height="18" fill="#fffaf0"/><rect y="399" width="800" height="3" opacity=".1"/>
-  <rect y="420" width="800" height="140" fill="url(#vz-floor)"/>
-  <path d="M0 452h800M0 492h800M0 532h800M120 420v32M420 420v32M660 420v32M260 452v40M560 452v40M90 492v40M380 492v40M700 492v40" fill="none" stroke="#8f6238" stroke-width="2" opacity=".35"/>
-  <ellipse cx="455" cy="496" rx="250" ry="38" fill="#f3ead9"/><ellipse cx="455" cy="496" rx="226" ry="30" fill="none" stroke="#d9cdb6" stroke-width="3"/>
-  <g>
-    <path d="M214 400c-18-40-44-58-70-62 22 14 36 34 44 62zM226 398c-6-50 6-86 30-112-8 34-10 70-6 112zM236 400c10-36 34-54 60-58-20 14-32 32-38 58z" fill="#3f7d57"/>
-    <path d="M222 398c-12-44-8-80 4-120 6 40 8 78 8 120z" fill="#2f6846"/>
-    <path d="M196 396h72l-8 62h-56z" fill="#c4704f"/><rect x="192" y="390" width="80" height="12" rx="4" fill="#d6845f"/>
-  </g>
-  <g>
-    <ellipse cx="470" cy="468" rx="212" ry="14" opacity=".18"/>
-    <rect x="318" y="446" width="12" height="24" rx="3" fill="#141416"/><rect x="610" y="446" width="12" height="24" rx="3" fill="#141416"/>
-    <rect x="310" y="300" width="320" height="120" rx="28" fill="#e7dccb"/>
-    <rect x="286" y="352" width="56" height="100" rx="24" fill="#dccfbb"/><rect x="598" y="352" width="56" height="100" rx="24" fill="#dccfbb"/>
-    <rect x="322" y="376" width="296" height="76" rx="20" fill="#f1e8da"/>
-    <path d="M470 380v70" stroke="#d9ccb7" stroke-width="3"/>
-    <rect x="344" y="326" width="72" height="62" rx="14" fill="#ffd023" transform="rotate(-8 380 357)"/>
-    <rect x="528" y="328" width="70" height="60" rx="14" fill="#1c9be6" transform="rotate(7 563 358)"/>
-  </g>
-  <g>
-    <circle cx="716" cy="296" r="66" fill="#ffd023" opacity=".18"/>
-    <path d="M690 316h52l-12-56h-28z" fill="#fff6dc"/>
-    <rect x="713" y="316" width="6" height="74" fill="#141416"/>
-    <rect x="678" y="388" width="78" height="9" rx="3" fill="#141416"/>
-    <path d="M688 397l-8 70M746 397l8 70" stroke="#141416" stroke-width="5" stroke-linecap="round" fill="none"/>
-  </g>
-</svg>
-        <span class="viz-label" aria-live="polite"><i></i>Wall: <b>Chalk</b></span>
+        <div class="board-face" role="img" aria-label="A wall panel shown in the selected colour">
+          <i class="board-coat"></i><i class="board-light"></i>
+          <p class="board-tag" aria-live="polite"><span>Wall colour</span><b class="board-name">Chalk</b></p>
+        </div>
       </div>
       <div class="viz-chips" role="group" aria-label="Wall colours" data-r><button type="button" class="viz-chip is-on" style="--c:#efe9dd" data-c="#efe9dd" data-n="Chalk" aria-pressed="true"><i></i><span>Chalk</span></button><button type="button" class="viz-chip" style="--c:#f0d98c" data-c="#f0d98c" data-n="Butter" aria-pressed="false"><i></i><span>Butter</span></button><button type="button" class="viz-chip" style="--c:#a9b8a0" data-c="#a9b8a0" data-n="Sage" aria-pressed="false"><i></i><span>Sage</span></button><button type="button" class="viz-chip" style="--c:#7fa6bf" data-c="#7fa6bf" data-n="Coastal" aria-pressed="false"><i></i><span>Coastal</span></button><button type="button" class="viz-chip" style="--c:#e3b7a8" data-c="#e3b7a8" data-n="Blush" aria-pressed="false"><i></i><span>Blush</span></button><button type="button" class="viz-chip" style="--c:#c4704f" data-c="#c4704f" data-n="Clay" aria-pressed="false"><i></i><span>Clay</span></button><button type="button" class="viz-chip" style="--c:#22344e" data-c="#22344e" data-n="Navy" aria-pressed="false"><i></i><span>Navy</span></button><button type="button" class="viz-chip" style="--c:#3a3c40" data-c="#3a3c40" data-n="Slate" aria-pressed="false"><i></i><span>Slate</span></button></div>
       <div class="viz-go" data-r><a class="btn btn-ink" href="contact.html">Talk colours with Adam <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a></div>
@@ -426,12 +300,11 @@ setTimeout(function(){if(!window.__aps)r.classList.remove('js','has-intro','intr
   </div>
 </section>
 
-<section class="sec sec--yellow has-drip" id="reviews">
-  <span class="drip" aria-hidden="true"></span>
+<section class="sec sec--white" id="reviews">
   <div class="wrap rev">
     <div class="rev-score" data-r>
-      <p class="kicker">Google reviews</p>
-      <p class="rev-num" aria-hidden="true">5.0</p>
+      <p class="kicker"><span class="dots"></span>Google reviews</p>
+      <p class="rev-num" aria-hidden="true" data-count="5.0">5.0</p>
       <p class="rev-stars" role="img" aria-label="5.0 out of 5 stars"><svg class="ico" style="--i:0" aria-hidden="true" focusable="false"><use href="#i-star"/></svg><svg class="ico" style="--i:1" aria-hidden="true" focusable="false"><use href="#i-star"/></svg><svg class="ico" style="--i:2" aria-hidden="true" focusable="false"><use href="#i-star"/></svg><svg class="ico" style="--i:3" aria-hidden="true" focusable="false"><use href="#i-star"/></svg><svg class="ico" style="--i:4" aria-hidden="true" focusable="false"><use href="#i-star"/></svg></p>
       <p class="rev-src">Google rating, from 2 reviews</p>
       <a class="link" href="https://www.google.com/maps/search/?api=1&amp;query=A.P.S+Adam%27s+Painting+Solutions+Caulfield+North+VIC" target="_blank" rel="noopener">Read them on Google <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a>
@@ -455,11 +328,10 @@ setTimeout(function(){if(!window.__aps)r.classList.remove('js','has-intro','intr
   </div>
 </section>
 
-<section class="cta cta--drip">
-  <span class="drip drip--yellow" aria-hidden="true"></span>
-  <svg class="ribbons" data-r viewBox="0 0 600 300" preserveAspectRatio="none" aria-hidden="true" focusable="false"><g><path pathLength="1" style="--i:0" stroke="#1277b8" stroke-width="34" d="M-40 78C60 28 130 128 236 -26"/><path pathLength="1" style="--i:0" stroke="#1c9be6" stroke-width="34" d="M-40 70C60 20 130 120 236 -34"/><path pathLength="1" style="--i:0" stroke="#8fd0f7" stroke-width="5" opacity=".75" d="M-40 59.8C60 9.8 130 109.8 236 -44.2"/></g><g><path pathLength="1" style="--i:1" stroke="#d9a900" stroke-width="40" d="M372 344C452 222 540 294 650 194"/><path pathLength="1" style="--i:1" stroke="#ffd023" stroke-width="40" d="M372 336C452 214 540 286 650 186"/><path pathLength="1" style="--i:1" stroke="#fff0a6" stroke-width="6" opacity=".75" d="M372 324.0C452 202.0 540 274.0 650 174.0"/></g><g><path pathLength="1" style="--i:2" stroke="#b01560" stroke-width="16" d="M-40 251C36 231 96 295 150 341"/><path pathLength="1" style="--i:2" stroke="#e6257c" stroke-width="16" d="M-40 246C36 226 96 290 150 336"/><path pathLength="1" style="--i:2" stroke="#f79cc6" stroke-width="4" opacity=".75" d="M-40 241.2C36 221.2 96 285.2 150 331.2"/></g></svg>
+<section class="cta">
+  <img class="cta-bg" src="assets/stock/weatherboard-white.jpg" alt="" width="1200" height="800" loading="lazy" decoding="async">
   <div class="wrap cta-in" data-r>
-    <p class="kicker"><span class="dots"><i></i><i></i><i></i></span>Caulfield North, Melbourne</p>
+    <p class="kicker"><span class="dots"></span>Caulfield North, Melbourne</p>
     <h2 class="cta-title">Ready for a <span class="stroke">fresh coat?</span></h2>
     <p class="lede">Tell Adam what needs painting. Open Monday to Friday 7 am to 10 pm, Saturday 9 am to 10 pm.</p>
     <div class="cta-btns">
@@ -527,6 +399,6 @@ setTimeout(function(){if(!window.__aps)r.classList.remove('js','has-intro','intr
   </div>
 </footer>
 <div class="bar"><a class="btn btn-ghost" href="tel:+61426037747"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-phone"/></svg>Call Adam</a><a class="btn btn-y" href="contact.html">Get a quote <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a></div>
-<script src="assets/js/site.js?v=3" defer></script>
+<script src="assets/js/site.js?v=4" defer></script>
 </body>
 </html>

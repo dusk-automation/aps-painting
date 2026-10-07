@@ -95,56 +95,52 @@
     revealEls.forEach(function (el) { el.classList.add('in'); });
   }
 
-  /* ---------- hero: the wall that gets painted ---------- */
+  /* ---------- hero: photographs that wipe across, one at a time ---------- */
   var clamp = function (v) { return v < 0 ? 0 : v > 1 ? 1 : v; };
-  var hero = $('.hero'), wall = $('[data-wall]');
-  if (wall && !reduce) {
-    var face = $('.wall-face', wall), wroller = $('.wall-roller', wall), wnames = $('.wall-names', wall);
-    // each pass of the roller is a new set of three colours
-    var coats = [['#ffd023', '#1c9be6', '#e6257c', 'Sun · Sky · Rose'], ['#a9b8a0', '#22344e', '#c4704f', 'Sage · Navy · Clay'], ['#7fa6bf', '#f0d98c', '#3a3c40', 'Coastal · Butter · Slate']], coat = 0;
-    if (wroller) wroller.addEventListener('animationiteration', function () {
-      coat = (coat + 1) % coats.length;
-      var c = coats[coat];
-      face.style.setProperty('--c1', c[0]); face.style.setProperty('--c2', c[1]); face.style.setProperty('--c3', c[2]);
-      if (wnames) wnames.textContent = c[3];
-    });
+  var hero = $('.hero');
+  $$('[data-show]').forEach(function (show) {
+    var slides = $$('.show-slide', show), marks = $$('.show-bar i', show), at = 0, timer = null, visible = true;
+    if (slides.length < 2 || reduce) return;
+    var go = function () {
+      var prev = slides[at];
+      at = (at + 1) % slides.length;
+      slides.forEach(function (sl) { sl.classList.remove('is-prev'); });
+      prev.classList.remove('is-on'); prev.classList.add('is-prev');
+      slides[at].classList.add('is-on');
+      show.classList.remove('is-wiping'); void show.offsetWidth; show.classList.add('is-wiping');
+      marks.forEach(function (mk, k) { mk.classList.toggle('is-done', k < at); mk.classList.toggle('is-on', k === at); });
+      setTimeout(function () { prev.classList.remove('is-prev'); }, 1300);
+    };
+    var start = function () { if (!timer && visible) timer = setInterval(go, 5600); };
+    var stop = function () { clearInterval(timer); timer = null; };
     if ('IntersectionObserver' in window) {
-      new IntersectionObserver(function (en) { face.classList.toggle('is-paused', !en[0].isIntersecting); }, { threshold: 0.05 }).observe(face);
+      new IntersectionObserver(function (en) { visible = en[0].isIntersecting; show.classList.toggle('is-paused', !visible); if (visible) start(); else stop(); }, { threshold: 0.2 }).observe(show);
     }
-    setTimeout(function () { wall.classList.add('is-live'); }, 5200);
-    // on a mouse, the wall leans a little towards the pointer
-    if (hero && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-      hero.addEventListener('pointermove', function (e) {
-        var r = hero.getBoundingClientRect();
-        wall.style.setProperty('--tx', (((e.clientX - r.left) / r.width) * 2 - 1).toFixed(3));
-        wall.style.setProperty('--ty', (((e.clientY - r.top) / r.height) * 2 - 1).toFixed(3));
-      });
-      hero.addEventListener('pointerleave', function () { wall.style.setProperty('--tx', 0); wall.style.setProperty('--ty', 0); });
-    }
-  }
+    d.addEventListener('visibilitychange', function () { if (d.hidden) stop(); else start(); });
+    setTimeout(start, root.classList.contains('has-intro') ? 2400 : 400);
+  });
 
-  /* ---------- the scroll story: one job, start to finish ---------- */
+  /* ---------- the scroll story: four steps, four site photos ---------- */
   var story = $('.story'), track = $('.story-track'), stage = $('.story-stage'), storyTick = null;
   if (story && track && stage && !reduce && window.CSS && CSS.supports && CSS.supports('position', 'sticky')) {
     root.classList.add('story-on');
-    var scene = $('.story-scene', story), slis = $$('.story-steps .step', story), sbars = $$('.story-bars i', story), sphase = $('.sc-phase', story);
-    var phases = ['Before', 'Prep', 'Painting', 'Finished'], lastStep = -1, stageTop = 0;
+    var shots = $$('.sc-shot', story), slis = $$('.story-steps .step', story), sbars = $$('.story-bars i', story);
+    var edge = $('.sc-edge', story), count = $('.sc-count b', story), lastStep = -1, stageTop = 0;
+    $$('img', story).forEach(function (im) { im.loading = 'eager'; });
     var setStory = function (p) {
-      var seg = p * 4, idx = Math.min(3, Math.floor(seg));
-      var ph = [0, 1, 2, 3].map(function (k) { return p >= 1 ? 1 : clamp((seg - k) / 0.74); });
-      scene.style.setProperty('--p1', ph[0].toFixed(3));
-      scene.style.setProperty('--p2', ph[1].toFixed(3));
-      scene.style.setProperty('--p3', ph[2].toFixed(3));
-      scene.style.setProperty('--p4', ph[3].toFixed(3));
-      scene.style.setProperty('--mk', (ph[0] * (1 - clamp(ph[1] * 4))).toFixed(3));           // problem spots: shown while looking, gone once prep starts
-      scene.style.setProperty('--tape', Math.min(ph[1], 1 - clamp(ph[3] * 2.2)).toFixed(3));   // tape and drop sheet: down in prep, lifted at the walk-through
-      scene.style.setProperty('--sky', ((ph[2] + ph[3]) / 2).toFixed(3));
-      scene.classList.toggle('is-rolling', ph[2] > 0.004 && ph[2] < 0.996);
-      sbars.forEach(function (b, k) { b.style.setProperty('--f', clamp(seg - k).toFixed(3)); });
+      var n = shots.length, seg = p * n, idx = Math.min(n - 1, Math.floor(seg));
+      shots.forEach(function (sh, k) {
+        // each photo wipes in over the first part of its step, then settles while the step is read
+        sh.style.setProperty('--w', (k === 0 || p >= 1 ? 1 : clamp((seg - k) / 0.45)).toFixed(3));
+        sh.style.setProperty('--z', clamp(seg - k).toFixed(3));
+      });
+      var w = idx > 0 ? clamp((seg - idx) / 0.45) : 0;
+      if (edge) { edge.style.setProperty('--e', w.toFixed(3)); edge.style.setProperty('--eo', w > 0.004 && w < 0.996 ? 1 : 0); }
+      sbars.forEach(function (bar, k) { bar.style.setProperty('--f', clamp(seg - k).toFixed(3)); });
       if (idx !== lastStep) {
         lastStep = idx;
         slis.forEach(function (li, k) { li.classList.toggle('is-on', k === idx); li.classList.toggle('is-past', k < idx); });
-        if (sphase) sphase.textContent = phases[idx];
+        if (count) count.textContent = '0' + (idx + 1);
       }
     };
     var measureStory = function () { stageTop = parseFloat(getComputedStyle(stage).top) || 0; };
@@ -169,6 +165,31 @@
   };
   window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(onFrame); } }, { passive: true });
   onFrame();
+
+  /* ---------- numbers that count up once, and sections that mark themselves seen ---------- */
+  if ('IntersectionObserver' in window && !reduce) {
+    $$('[data-count]').forEach(function (el) {
+      var end = parseFloat(el.dataset.count), dec = (el.dataset.count.split('.')[1] || '').length;
+      el.textContent = (0).toFixed(dec);
+      var io2 = new IntersectionObserver(function (en) {
+        if (!en[0].isIntersecting) return;
+        io2.disconnect();
+        var t0 = null, dur = 1300;
+        var stepUp = function (t) {
+          if (t0 === null) t0 = t;
+          var k = clamp((t - t0) / dur), e = 1 - Math.pow(1 - k, 3);
+          el.textContent = (end * e).toFixed(dec);
+          if (k < 1) requestAnimationFrame(stepUp); else el.textContent = el.dataset.count;
+        };
+        requestAnimationFrame(stepUp);
+      }, { threshold: 0.6 });
+      io2.observe(el);
+    });
+    $$('.cta').forEach(function (el) {
+      var io3 = new IntersectionObserver(function (en) { if (en[0].isIntersecting) { el.classList.add('is-seen'); io3.disconnect(); } }, { threshold: 0.25 });
+      io3.observe(el);
+    });
+  }
 
   /* ---------- before / after, rolled on ---------- */
   $$('[data-ba]').forEach(function (ba) {
@@ -203,29 +224,32 @@
     }
   });
 
-  /* ---------- colour visualiser ---------- */
+  /* ---------- colour: a swatch shown across a wall panel ---------- */
   $$('[data-viz]').forEach(function (viz) {
-    var wall = $('.viz-wall', viz), coat = $('.viz-coat', viz), label = $('.viz-label', viz), name = $('.viz-label b', viz);
+    var face = $('.board-face', viz), coat = $('.board-coat', viz), name = $('.board-name', viz);
     var chips = $$('.viz-chip', viz), busy = false, queued = null;
-    if (!wall || !coat) return;
+    if (!face || !coat) return;
+    // dark lettering on light colours, light lettering on dark ones
+    var ink = function (hex) {
+      var n = parseInt(hex.slice(1), 16), r = n >> 16, g = (n >> 8) & 255, b2 = n & 255;
+      return (0.299 * r + 0.587 * g + 0.114 * b2) > 150 ? '#0c0c0d' : '#f5efe3';
+    };
     function paint(chip) {
       if (busy) { queued = chip; return; }
       var c = chip.dataset.c;
       chips.forEach(function (x) { var on = x === chip; x.classList.toggle('is-on', on); x.setAttribute('aria-pressed', on ? 'true' : 'false'); });
-      if (name) name.textContent = chip.dataset.n;
-      if (label) label.style.setProperty('--c', c);
-      if (reduce) { wall.setAttribute('fill', c); return; }
+      var finish = function () { face.style.setProperty('--c', c); face.style.setProperty('--tc', ink(c)); if (name) name.textContent = chip.dataset.n; };
+      if (reduce) { finish(); return; }
       busy = true;
-      $$('rect', coat).forEach(function (r) { r.setAttribute('fill', c); });
+      coat.style.setProperty('--n', c);
       coat.classList.add('go');
+      setTimeout(function () { face.style.setProperty('--tc', ink(c)); if (name) name.textContent = chip.dataset.n; }, 420);
       setTimeout(function () {
-        wall.setAttribute('fill', c);
-        coat.classList.add('reset'); coat.classList.remove('go');
-        void coat.getBoundingClientRect();
-        coat.classList.remove('reset');
+        finish();
+        coat.classList.remove('go');
         busy = false;
         if (queued && queued !== chip) { var q = queued; queued = null; paint(q); } else queued = null;
-      }, 860);
+      }, 940);
     }
     chips.forEach(function (chip) { chip.addEventListener('click', function () { paint(chip); }); });
   });

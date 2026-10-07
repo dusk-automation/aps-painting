@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&amp;family=Josefin+Sans:wght@500;600;700&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/site.css?v=3">
+<link rel="stylesheet" href="assets/css/site.css?v=4">
 <script>
 (function(){var r=document.documentElement,p=false;r.classList.add('js');
 try{var s=sessionStorage,m=matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -25,7 +25,11 @@ p=!m&&(!inside||/[?&]intro=1/.test(location.search));
 if(/[?&]intro=0/.test(location.search))p=false;
 if(!p&&!m&&inside)r.classList.add('wipe-in');}catch(e){}
 r.classList.add(p?'has-intro':'no-intro');if(p)r.classList.add('intro-lock');
-setTimeout(function(){if(!window.__aps)r.classList.remove('js','has-intro','intro-lock','wipe-in')},6000);})();
+setTimeout(function(){if(!window.__aps)r.classList.remove('js','has-intro','intro-lock','wipe-in')},6000);
+// if a newer version has been published than the copy this browser kept, load the new one once
+try{var B='4';fetch('version.txt?'+Date.now(),{cache:'no-store'}).then(function(x){return x.ok?x.text():''}).then(function(t){t=(t||'').trim();
+if(/^\d+$/.test(t)&&t!==B&&!new RegExp('[?&]r='+t+'(&|$)').test(location.search)){location.replace(location.pathname+'?r='+t+location.hash)}}).catch(function(){})}catch(e){}
+})();
 </script>
 </head>
 <body>
@@ -125,14 +129,13 @@ setTimeout(function(){if(!window.__aps)r.classList.remove('js','has-intro','intr
 <circle class="d" style="--i:6" fill="currentColor" cx="97" cy="27" r="2.4"/>
 </svg>
   <div class="wrap phero-in">
-    <p class="kicker" data-h style="--i:0"><span class="dots"><i></i><i></i><i></i></span>Get a quote</p>
+    <p class="kicker" data-h style="--i:0"><span class="dots"></span>Get a quote</p>
     <h1 class="phero-title" data-h style="--i:1">Tell Adam about the <span class="stroke">job.</span></h1>
     <p class="lede" data-h style="--i:2">Three quick steps. Or skip the form and call 0426 037 747.</p>
     
   </div>
 </section>
-<section class="sec sec--paper has-drip">
-  <span class="drip" aria-hidden="true"></span>
+<section class="sec sec--paper">
   <div class="wrap contact-grid">
     <form class="quote" id="quote" data-quote novalidate action="#" method="post" data-r>
       <div class="q-progress" aria-hidden="true">
@@ -238,12 +241,11 @@ setTimeout(function(){if(!window.__aps)r.classList.remove('js','has-intro','intr
   </div>
 </section>
 
-<section class="sec sec--yellow" id="reviews">
-  
+<section class="sec sec--white" id="reviews">
   <div class="wrap rev">
     <div class="rev-score" data-r>
-      <p class="kicker">Google reviews</p>
-      <p class="rev-num" aria-hidden="true">5.0</p>
+      <p class="kicker"><span class="dots"></span>Google reviews</p>
+      <p class="rev-num" aria-hidden="true" data-count="5.0">5.0</p>
       <p class="rev-stars" role="img" aria-label="5.0 out of 5 stars"><svg class="ico" style="--i:0" aria-hidden="true" focusable="false"><use href="#i-star"/></svg><svg class="ico" style="--i:1" aria-hidden="true" focusable="false"><use href="#i-star"/></svg><svg class="ico" style="--i:2" aria-hidden="true" focusable="false"><use href="#i-star"/></svg><svg class="ico" style="--i:3" aria-hidden="true" focusable="false"><use href="#i-star"/></svg><svg class="ico" style="--i:4" aria-hidden="true" focusable="false"><use href="#i-star"/></svg></p>
       <p class="rev-src">Google rating, from 2 reviews</p>
       <a class="link" href="https://www.google.com/maps/search/?api=1&amp;query=A.P.S+Adam%27s+Painting+Solutions+Caulfield+North+VIC" target="_blank" rel="noopener">Read them on Google <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a>
@@ -325,6 +327,6 @@ setTimeout(function(){if(!window.__aps)r.classList.remove('js','has-intro','intr
   </div>
 </footer>
 <div class="bar"><a class="btn btn-ghost" href="tel:+61426037747"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-phone"/></svg>Call Adam</a><a class="btn btn-y" href="#quote">Get a quote <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a></div>
-<script src="assets/js/site.js?v=3" defer></script>
+<script src="assets/js/site.js?v=4" defer></script>
 </body>
 </html>

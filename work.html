@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&amp;family=Josefin+Sans:wght@500;600;700&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/site.css?v=3">
+<link rel="stylesheet" href="assets/css/site.css?v=4">
 <script>
 (function(){var r=document.documentElement,p=false;r.classList.add('js');
 try{var s=sessionStorage,m=matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -25,7 +25,11 @@ p=!m&&(!inside||/[?&]intro=1/.test(location.search));
 if(/[?&]intro=0/.test(location.search))p=false;
 if(!p&&!m&&inside)r.classList.add('wipe-in');}catch(e){}
 r.classList.add(p?'has-intro':'no-intro');if(p)r.classList.add('intro-lock');
-setTimeout(function(){if(!window.__aps)r.classList.remove('js','has-intro','intro-lock','wipe-in')},6000);})();
+setTimeout(function(){if(!window.__aps)r.classList.remove('js','has-intro','intro-lock','wipe-in')},6000);
+// if a newer version has been published than the copy this browser kept, load the new one once
+try{var B='4';fetch('version.txt?'+Date.now(),{cache:'no-store'}).then(function(x){return x.ok?x.text():''}).then(function(t){t=(t||'').trim();
+if(/^\d+$/.test(t)&&t!==B&&!new RegExp('[?&]r='+t+'(&|$)').test(location.search)){location.replace(location.pathname+'?r='+t+location.hash)}}).catch(function(){})}catch(e){}
+})();
 </script>
 </head>
 <body>
@@ -125,7 +129,7 @@ setTimeout(function(){if(!window.__aps)r.classList.remove('js','has-intro','intr
 <circle class="d" style="--i:6" fill="currentColor" cx="97" cy="27" r="2.4"/>
 </svg>
   <div class="wrap phero-in">
-    <p class="kicker" data-h style="--i:0"><span class="dots"><i></i><i></i><i></i></span>Our work</p>
+    <p class="kicker" data-h style="--i:0"><span class="dots"></span>Our work</p>
     <h1 class="phero-title" data-h style="--i:1">Real jobs. <span class="stroke">Real</span> photos.</h1>
     <p class="lede" data-h style="--i:2">No stock pictures on this page. These are Adam&#39;s own photos from site: before, during and after.</p>
     
@@ -241,8 +245,7 @@ setTimeout(function(){if(!window.__aps)r.classList.remove('js','has-intro','intr
   </div>
 </section>
 
-<section class="sec sec--paper has-drip" id="gallery">
-  <span class="drip" aria-hidden="true"></span>
+<section class="sec sec--paper" id="gallery">
   <div class="wrap">
     <div class="sec-head" data-r>
       <p class="kicker">Gallery</p>
@@ -261,10 +264,9 @@ setTimeout(function(){if(!window.__aps)r.classList.remove('js','has-intro','intr
 </div>
 
 <section class="cta">
-  
-  <svg class="ribbons" data-r viewBox="0 0 600 300" preserveAspectRatio="none" aria-hidden="true" focusable="false"><g><path pathLength="1" style="--i:0" stroke="#1277b8" stroke-width="34" d="M-40 78C60 28 130 128 236 -26"/><path pathLength="1" style="--i:0" stroke="#1c9be6" stroke-width="34" d="M-40 70C60 20 130 120 236 -34"/><path pathLength="1" style="--i:0" stroke="#8fd0f7" stroke-width="5" opacity=".75" d="M-40 59.8C60 9.8 130 109.8 236 -44.2"/></g><g><path pathLength="1" style="--i:1" stroke="#d9a900" stroke-width="40" d="M372 344C452 222 540 294 650 194"/><path pathLength="1" style="--i:1" stroke="#ffd023" stroke-width="40" d="M372 336C452 214 540 286 650 186"/><path pathLength="1" style="--i:1" stroke="#fff0a6" stroke-width="6" opacity=".75" d="M372 324.0C452 202.0 540 274.0 650 174.0"/></g><g><path pathLength="1" style="--i:2" stroke="#b01560" stroke-width="16" d="M-40 251C36 231 96 295 150 341"/><path pathLength="1" style="--i:2" stroke="#e6257c" stroke-width="16" d="M-40 246C36 226 96 290 150 336"/><path pathLength="1" style="--i:2" stroke="#f79cc6" stroke-width="4" opacity=".75" d="M-40 241.2C36 221.2 96 285.2 150 331.2"/></g></svg>
+  <img class="cta-bg" src="assets/stock/weatherboard-white.jpg" alt="" width="1200" height="800" loading="lazy" decoding="async">
   <div class="wrap cta-in" data-r>
-    <p class="kicker"><span class="dots"><i></i><i></i><i></i></span>Caulfield North, Melbourne</p>
+    <p class="kicker"><span class="dots"></span>Caulfield North, Melbourne</p>
     <h2 class="cta-title">Yours could be <span class="stroke">next.</span></h2>
     <p class="lede">Tell Adam about your place and what you want done.</p>
     <div class="cta-btns">
@@ -332,6 +334,6 @@ setTimeout(function(){if(!window.__aps)r.classList.remove('js','has-intro','intr
   </div>
 </footer>
 <div class="bar"><a class="btn btn-ghost" href="tel:+61426037747"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-phone"/></svg>Call Adam</a><a class="btn btn-y" href="contact.html">Get a quote <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a></div>
-<script src="assets/js/site.js?v=3" defer></script>
+<script src="assets/js/site.js?v=4" defer></script>
 </body>
 </html>
