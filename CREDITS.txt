@@ -1,0 +1,17 @@
+A.P.S Adam's Painting Solutions: design preview by Dusk
+
+Job photos (assets/photos): from the A.P.S Google Business listing, posted by the owner.
+Untouched copies are kept outside this folder in client-sites/_originals/aps-painting/.
+
+Stock stand-ins (assets/stock), Unsplash licence (free to use, no attribution required):
+  cottage-blue.jpg        Nicolas Gonzalez   unsplash.com/photos/photo-1587094313669-faf7668ed8a8
+  weatherboard-white.jpg  Paddy Pohlod       photo-1720175338668-2e96d090d780
+  living-cream.jpg        Spacejoy           photo-1631679706909-1844bbd07221
+  kitchen-green.jpg       Decima Athens      photo-1652918320907-f9ec8623ab30
+  roller-wall.jpg         (Unsplash)         photo-1693985120993-e9b203ce7631
+  fan-deck.jpg            Mika Baumeister    photo-1581079289196-67865ea83118
+
+Video (assets/video/roller.mp4), Pexels licence (free to use):
+  "Person Using a Paint Roller" by Polina Tankilevitch, pexels.com/video/5583171
+
+Fonts: Josefin Sans and DM Sans, Google Fonts (Open Font License).
