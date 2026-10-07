@@ -11,7 +11,4 @@ Stock stand-ins (assets/stock), Unsplash licence (free to use, no attribution re
   roller-wall.jpg         (Unsplash)         photo-1693985120993-e9b203ce7631
   fan-deck.jpg            Mika Baumeister    photo-1581079289196-67865ea83118
 
-Video (assets/video/roller.mp4), Pexels licence (free to use):
-  "Person Using a Paint Roller" by Polina Tankilevitch, pexels.com/video/5583171
-
 Fonts: Josefin Sans and DM Sans, Google Fonts (Open Font License).

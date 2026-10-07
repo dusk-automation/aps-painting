@@ -95,15 +95,80 @@
     revealEls.forEach(function (el) { el.classList.add('in'); });
   }
 
-  /* ---------- hero video: play when seen, rest when not ---------- */
-  $$('video[data-auto]').forEach(function (v) {
-    v.muted = true;
-    var play = function () { var p = v.play(); if (p && p.catch) p.catch(function () {}); };
-    if (reduce) { v.removeAttribute('autoplay'); v.pause(); return; }
+  /* ---------- hero: the wall that gets painted ---------- */
+  var clamp = function (v) { return v < 0 ? 0 : v > 1 ? 1 : v; };
+  var hero = $('.hero'), wall = $('[data-wall]');
+  if (wall && !reduce) {
+    var face = $('.wall-face', wall), wroller = $('.wall-roller', wall), wnames = $('.wall-names', wall);
+    // each pass of the roller is a new set of three colours
+    var coats = [['#ffd023', '#1c9be6', '#e6257c', 'Sun · Sky · Rose'], ['#a9b8a0', '#22344e', '#c4704f', 'Sage · Navy · Clay'], ['#7fa6bf', '#f0d98c', '#3a3c40', 'Coastal · Butter · Slate']], coat = 0;
+    if (wroller) wroller.addEventListener('animationiteration', function () {
+      coat = (coat + 1) % coats.length;
+      var c = coats[coat];
+      face.style.setProperty('--c1', c[0]); face.style.setProperty('--c2', c[1]); face.style.setProperty('--c3', c[2]);
+      if (wnames) wnames.textContent = c[3];
+    });
     if ('IntersectionObserver' in window) {
-      new IntersectionObserver(function (en) { if (en[0].isIntersecting) play(); else v.pause(); }, { threshold: 0.15 }).observe(v);
-    } else play();
-  });
+      new IntersectionObserver(function (en) { face.classList.toggle('is-paused', !en[0].isIntersecting); }, { threshold: 0.05 }).observe(face);
+    }
+    setTimeout(function () { wall.classList.add('is-live'); }, 5200);
+    // on a mouse, the wall leans a little towards the pointer
+    if (hero && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+      hero.addEventListener('pointermove', function (e) {
+        var r = hero.getBoundingClientRect();
+        wall.style.setProperty('--tx', (((e.clientX - r.left) / r.width) * 2 - 1).toFixed(3));
+        wall.style.setProperty('--ty', (((e.clientY - r.top) / r.height) * 2 - 1).toFixed(3));
+      });
+      hero.addEventListener('pointerleave', function () { wall.style.setProperty('--tx', 0); wall.style.setProperty('--ty', 0); });
+    }
+  }
+
+  /* ---------- the scroll story: one job, start to finish ---------- */
+  var story = $('.story'), track = $('.story-track'), stage = $('.story-stage'), storyTick = null;
+  if (story && track && stage && !reduce && window.CSS && CSS.supports && CSS.supports('position', 'sticky')) {
+    root.classList.add('story-on');
+    var scene = $('.story-scene', story), slis = $$('.story-steps .step', story), sbars = $$('.story-bars i', story), sphase = $('.sc-phase', story);
+    var phases = ['Before', 'Prep', 'Painting', 'Finished'], lastStep = -1, stageTop = 0;
+    var setStory = function (p) {
+      var seg = p * 4, idx = Math.min(3, Math.floor(seg));
+      var ph = [0, 1, 2, 3].map(function (k) { return p >= 1 ? 1 : clamp((seg - k) / 0.74); });
+      scene.style.setProperty('--p1', ph[0].toFixed(3));
+      scene.style.setProperty('--p2', ph[1].toFixed(3));
+      scene.style.setProperty('--p3', ph[2].toFixed(3));
+      scene.style.setProperty('--p4', ph[3].toFixed(3));
+      scene.style.setProperty('--mk', (ph[0] * (1 - clamp(ph[1] * 4))).toFixed(3));           // problem spots: shown while looking, gone once prep starts
+      scene.style.setProperty('--tape', Math.min(ph[1], 1 - clamp(ph[3] * 2.2)).toFixed(3));   // tape and drop sheet: down in prep, lifted at the walk-through
+      scene.style.setProperty('--sky', ((ph[2] + ph[3]) / 2).toFixed(3));
+      scene.classList.toggle('is-rolling', ph[2] > 0.004 && ph[2] < 0.996);
+      sbars.forEach(function (b, k) { b.style.setProperty('--f', clamp(seg - k).toFixed(3)); });
+      if (idx !== lastStep) {
+        lastStep = idx;
+        slis.forEach(function (li, k) { li.classList.toggle('is-on', k === idx); li.classList.toggle('is-past', k < idx); });
+        if (sphase) sphase.textContent = phases[idx];
+      }
+    };
+    var measureStory = function () { stageTop = parseFloat(getComputedStyle(stage).top) || 0; };
+    storyTick = function () {
+      var r = track.getBoundingClientRect(), dist = track.offsetHeight - stage.offsetHeight;
+      setStory(dist > 0 ? clamp((stageTop - r.top) / dist) : 0);
+    };
+    measureStory();
+    window.addEventListener('resize', function () { measureStory(); storyTick(); });
+    window.addEventListener('load', function () { measureStory(); storyTick(); });
+  }
+
+  /* ---------- things that follow the scroll ---------- */
+  var ticking = false;
+  var onFrame = function () {
+    ticking = false;
+    if (hero && !reduce) {
+      var hr = hero.getBoundingClientRect();
+      if (hr.bottom > 0) hero.style.setProperty('--hs', clamp(-hr.top / hr.height).toFixed(3));
+    }
+    if (storyTick) storyTick();
+  };
+  window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(onFrame); } }, { passive: true });
+  onFrame();
 
   /* ---------- before / after, rolled on ---------- */
   $$('[data-ba]').forEach(function (ba) {
